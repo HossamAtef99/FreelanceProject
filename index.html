@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Omar Phone - Your trusted mobile phone store for new smartphones, accessories, and repair services. Best phones. Best prices.">
+  <meta name="keywords" content="omar phone, mobile phones, smartphones, phone accessories, phone repair">
+  <meta property="og:title" content="Omar Phone - Best Phones. Best Prices.">
+  <meta property="og:description" content="Your trusted mobile phone store for new smartphones.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#2563EB">
+
+  <title>Omar Phone — Best Phones. Best Prices.</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+</head>
+
+<body>
+
+  <!-- ===== PRELOADER ===== -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-spinner"></div>
+    <div class="preloader-text">OMAR <span>PHONE</span></div>
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-logo">
+        <div class="navbar-logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+            <line x1="12" x2="12.01" y1="18" y2="18" />
+          </svg>
+        </div>
+        <div>
+          <div class="navbar-logo-text">OMAR <span>PHONE</span></div>
+        </div>
+      </a>
+      <nav class="navbar-links">
+        <a href="index.html" class="navbar-link">Home</a>
+        <a href="shop.html" class="navbar-link">Shop</a> <a href="accessories.html" class="navbar-link">Accessories</a>
+        <a href="about.html" class="navbar-link">About</a>
+        <a href="contact.html" class="navbar-link">Contact</a>
+      </nav>
+
+      <div class="navbar-actions">
+        <button class="navbar-action" id="searchToggle" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+        </button>
+        <a href="wishlist.html" class="navbar-action" aria-label="Wishlist">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+          </svg>
+          <span class="navbar-action-badge" id="wishlistBadge" style="display:none">0</span>
+        </a>
+        <a href="cart.html" class="navbar-action" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="8" cy="21" r="1" />
+            <circle cx="21" cy="21" r="1" />
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+          </svg>
+          <span class="navbar-action-badge" id="cartBadge" style="display:none">0</span>
+        </a>
+        <a href="admin.html" class="navbar-action" id="adminNavLink" aria-label="Admin" style="display:none;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </a>
+        <a href="login.html" class="navbar-action" aria-label="Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="5" />
+            <path d="M3 21a9 9 0 0 1 18 0" />
+          </svg>
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="search-bar" id="searchBar">
+      <div class="container">
+        <input type="text" class="search-bar-input" id="searchBarInput" placeholder="Search products..."
+          autocomplete="off">
+        <button class="search-bar-close" id="searchBarClose" aria-label="Close search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MOBILE MENU ===== -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <div class="navbar-logo">
+        <div class="navbar-logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+            <line x1="12" x2="12.01" y1="18" y2="18" />
+          </svg>
+        </div>
+        <div class="navbar-logo-text">OMAR <span>PHONE</span></div>
+      </div>
+      <button class="mobile-menu-close" id="mobileClose" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile-menu-links">
+      <a href="index.html" class="mobile-menu-link">Home</a>
+      <a href="shop.html" class="mobile-menu-link">Shop</a> <a href="accessories.html"
+        class="mobile-menu-link">Accessories</a>
+      <a href="about.html" class="mobile-menu-link">About</a>
+      <a href="contact.html" class="mobile-menu-link">Contact</a>
+      <div class="mobile-menu-divider"></div>
+      <a href="wishlist.html" class="mobile-menu-link">Wishlist</a>
+      <a href="cart.html" class="mobile-menu-link">Cart</a>
+        <a href="faq.html" class="mobile-menu-link">FAQ</a>
+      <a href="admin.html" class="mobile-menu-link" id="adminMobileLink" style="display:none;">Admin</a>
+
+    </div>
+  </div>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-shapes">
+      <div class="hero-shape hero-shape-1"></div>
+      <div class="hero-shape hero-shape-2"></div>
+      <div class="hero-shape hero-shape-3"></div>
+    </div>
+
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+          Trusted by 10,000+ Customers
+        </div>
+        <h1 class="hero-title">Find Your Perfect<br><span>Smartphone</span> Today</h1>
+        <p class="hero-subtitle">Discover premium new smartphones at unbeatable prices. Expertly
+          tested, fully guaranteed, and delivered with care.</p>
+        <div class="hero-actions">
+          <a href="shop.html" class="btn btn-primary btn-lg">Shop Now</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-value">10,000+</div>
+            <div class="hero-stat-label">Happy Customers</div>
+          </div>
+          <div>
+            <div class="hero-stat-value">50+</div>
+            <div class="hero-stat-label">Phone Brands</div>
+          </div>
+          <div>
+            <div class="hero-stat-value">5,000+</div>
+            <div class="hero-stat-label">Phones Sold</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-phone-wrapper">
+          <img src="images/17 promax.webp" alt="iPhone 17 Pro Max Silver" class="hero-phone-main" loading="eager">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BRAND STRIP ===== -->
+  <section class="brand-strip">
+    <div class="brand-strip-track">
+      <span class="brand-strip-item">Apple</span>
+      <span class="brand-strip-item">Samsung</span>
+      <span class="brand-strip-item">Xiaomi</span>
+      <span class="brand-strip-item">Realme</span>
+      <span class="brand-strip-item">Oppo</span>
+      <span class="brand-strip-item">Huawei</span>
+      <span class="brand-strip-item">Google</span>
+      <span class="brand-strip-item">Honor</span>
+      <span class="brand-strip-item">Nothing</span>
+      <span class="brand-strip-item">OnePlus</span>
+      <span class="brand-strip-item">Apple</span>
+      <span class="brand-strip-item">Samsung</span>
+      <span class="brand-strip-item">Xiaomi</span>
+      <span class="brand-strip-item">Realme</span>
+      <span class="brand-strip-item">Oppo</span>
+      <span class="brand-strip-item">Huawei</span>
+      <span class="brand-strip-item">Google</span>
+      <span class="brand-strip-item">Honor</span>
+      <span class="brand-strip-item">Nothing</span>
+      <span class="brand-strip-item">OnePlus</span>
+    </div>
+  </section>
+
+  <!-- ===== SHOP BY CATEGORY ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Categories</span>
+        <h2 class="section-title">Shop by Category</h2>
+        <p class="section-subtitle">Everything you need for your mobile lifestyle, all in one place.</p>
+      </div>
+
+      <div class="categories-grid stagger-children">
+        <a href="shop.html" class="category-card">
+          <div class="category-card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+              <line x1="12" x2="12.01" y1="18" y2="18" />
+            </svg>
+          </div>
+          <div class="category-card-title">Phones</div>
+          <div class="category-card-count">Premium smartphones</div>
+        </a>
+
+        <a href="accessories.html" class="category-card">
+          <div class="category-card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+          </div>
+          <div class="category-card-title">Accessories</div>
+          <div class="category-card-count">Cases, chargers, more</div>
+        </a>
+
+        <a href="category.html?type=tablets" class="category-card">
+          <div class="category-card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="4" y="2" width="16" height="20" rx="2" ry="2" />
+              <line x1="12" x2="12.01" y1="18" y2="18" />
+            </svg>
+          </div>
+          <div class="category-card-title">Tablets</div>
+          <div class="category-card-count">Premium tablets</div>
+        </a>
+
+        <a href="category.html?type=watches" class="category-card">
+          <div class="category-card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="7" />
+              <polyline points="12 9 12 12 13.5 13.5" />
+              <path
+                d="M16.51 17.35l-.35 3.83a2 2 0 0 1-2 1.82H9.83a2 2 0 0 1-2-1.82l-.35-3.83m.01-10.7l.35-3.83A2 2 0 0 1 9.83 1h4.35a2 2 0 0 1 2 1.82l.35 3.83" />
+            </svg>
+          </div>
+          <div class="category-card-title">Smart Watches</div>
+          <div class="category-card-count">Wearable tech</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED PRODUCTS ===== -->
+  <section class="section" style="background: var(--bg-alt);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Featured</span>
+        <h2 class="section-title">Featured Products</h2>
+        <p class="section-subtitle">Our top picks curated just for you.</p>
+      </div>
+
+      <div class="product-grid stagger-children">
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop&crop=center"
+              alt="iPhone 15 Pro Max" loading="lazy">
+            <div class="product-card-badges">
+              <span class="badge badge-new">New</span>
+            </div>
+            <div class="product-card-actions">
+              <button class="product-card-action wishlist-btn" data-id="iphone15pm" title="Add to wishlist">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+              </button>
+              <button class="product-card-action" title="Quick view">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-card-body">
+            <div class="product-card-brand">Apple</div>
+            <h3 class="product-card-title">iPhone 15 Pro Max</h3>
+            <div class="product-card-specs">
+              <span class="product-card-spec">256GB</span>
+              <span class="product-card-spec">8GB RAM</span>
+              <span class="product-card-spec">Titanium</span>
+            </div>
+            <div class="product-card-rating">
+              <div class="product-card-stars">★★★★★</div>
+              <span class="product-card-reviews">(128 reviews)</span>
+            </div>
+            <div class="product-card-price-row">
+              <span class="product-card-price">EGP 57,499</span>
+              <span class="product-card-old-price">EGP 62,499</span>
+              <span class="product-card-discount">-8%</span>
+            </div>
+            <div class="product-card-stock in-stock">In Stock</div>
+            <button class="product-card-add"
+              data-product='{"id":"iphone15pm","name":"iPhone 15 Pro Max","image":"https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop&crop=center","price":57499,"storage":"256GB","color":"Titanium"}'>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="8" cy="21" r="1" />
+                <circle cx="21" cy="21" r="1" />
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+              </svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center"
+              alt="Samsung Galaxy S24 Ultra" loading="lazy">
+            <div class="product-card-badges">
+              <span class="badge badge-sale">Sale</span>
+            </div>
+            <div class="product-card-actions">
+              <button class="product-card-action wishlist-btn" data-id="s24ultra" title="Add to wishlist">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+              </button>
+              <button class="product-card-action" title="Quick view">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-card-body">
+            <div class="product-card-brand">Samsung</div>
+            <h3 class="product-card-title">Galaxy S24 Ultra</h3>
+            <div class="product-card-specs">
+              <span class="product-card-spec">512GB</span>
+              <span class="product-card-spec">12GB RAM</span>
+              <span class="product-card-spec">Titanium Gray</span>
+            </div>
+            <div class="product-card-rating">
+              <div class="product-card-stars">★★★★★</div>
+              <span class="product-card-reviews">(94 reviews)</span>
+            </div>
+            <div class="product-card-price-row">
+              <span class="product-card-price">EGP 52,499</span>
+              <span class="product-card-old-price">EGP 62,499</span>
+              <span class="product-card-discount">-15%</span>
+            </div>
+            <div class="product-card-stock in-stock">In Stock</div>
+            <button class="product-card-add"
+              data-product='{"id":"s24ultra","name":"Samsung Galaxy S24 Ultra","image":"https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center","price":52499,"storage":"512GB","color":"Titanium Gray"}'>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="8" cy="21" r="1" />
+                <circle cx="21" cy="21" r="1" />
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+              </svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&h=400&fit=crop&crop=center"
+              alt="Google Pixel 8 Pro" loading="lazy">
+            <div class="product-card-actions">
+              <button class="product-card-action wishlist-btn" data-id="pixel8pro" title="Add to wishlist">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+              </button>
+              <button class="product-card-action" title="Quick view">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-card-body">
+            <div class="product-card-brand">Google</div>
+            <h3 class="product-card-title">Pixel 8 Pro</h3>
+            <div class="product-card-specs">
+              <span class="product-card-spec">128GB</span>
+              <span class="product-card-spec">12GB RAM</span>
+              <span class="product-card-spec">Obsidian</span>
+            </div>
+            <div class="product-card-rating">
+              <div class="product-card-stars">★★★★★</div>
+              <span class="product-card-reviews">(76 reviews)</span>
+            </div>
+            <div class="product-card-price-row">
+              <span class="product-card-price">EGP 42,999</span>
+              <span class="product-card-old-price">EGP 47,999</span>
+              <span class="product-card-discount">-10%</span>
+            </div>
+            <div class="product-card-stock in-stock">In Stock</div>
+            <button class="product-card-add"
+              data-product='{"id":"pixel8pro","name":"Google Pixel 8 Pro","image":"https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&h=400&fit=crop&crop=center","price":42999,"storage":"128GB","color":"Obsidian"}'>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="8" cy="21" r="1" />
+                <circle cx="21" cy="21" r="1" />
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+              </svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400&h=400&fit=crop&crop=center"
+              alt="OnePlus 12" loading="lazy">
+            <div class="product-card-badges">
+              <span class="badge badge-new">New</span>
+              <span class="badge badge-sale">-12%</span>
+            </div>
+            <div class="product-card-actions">
+              <button class="product-card-action wishlist-btn" data-id="oneplus12" title="Add to wishlist">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+              </button>
+              <button class="product-card-action" title="Quick view">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-card-body">
+            <div class="product-card-brand">OnePlus</div>
+            <h3 class="product-card-title">OnePlus 12</h3>
+            <div class="product-card-specs">
+              <span class="product-card-spec">256GB</span>
+              <span class="product-card-spec">16GB RAM</span>
+              <span class="product-card-spec">Flowy Emerald</span>
+            </div>
+            <div class="product-card-rating">
+              <div class="product-card-stars">★★★★★</div>
+              <span class="product-card-reviews">(52 reviews)</span>
+            </div>
+            <div class="product-card-price-row">
+              <span class="product-card-price">EGP 33,499</span>
+              <span class="product-card-old-price">EGP 37,999</span>
+              <span class="product-card-discount">-12%</span>
+            </div>
+            <div class="product-card-stock in-stock">In Stock</div>
+            <button class="product-card-add"
+              data-product='{"id":"oneplus12","name":"OnePlus 12","image":"https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400&h=400&fit=crop&crop=center","price":33499,"storage":"256GB","color":"Flowy Emerald"}'>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="8" cy="21" r="1" />
+                <circle cx="21" cy="21" r="1" />
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+              </svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LATEST ARRIVALS ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">New In</span>
+        <h2 class="section-title">Latest Arrivals</h2>
+        <p class="section-subtitle">Be the first to own the newest smartphones on the market.</p>
+      </div>
+
+      <div class="product-grid stagger-children">
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center"
+              alt="iPhone 15" loading="lazy">
+            <div class="product-card-badges">
+              <span class="badge badge-new">New</span>
+            </div>
+            <div class="product-card-actions">
+              <button class="product-card-action wishlist-btn" data-id="iphone15" title="Add to wishlist">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-card-body">
+            <div class="product-card-brand">Apple</div>
+            <h3 class="product-card-title">iPhone 15</h3>
+            <div class="product-card-specs">
+              <span class="product-card-spec">128GB</span>
+              <span class="product-card-spec">6GB RAM</span>
+              <span class="product-card-spec">Pink</span>
+            </div>
+            <div class="product-card-price-row">
+              <span class="product-card-price">EGP 37,999</span>
+            </div>
+            <div class="product-card-stock in-stock">In Stock</div>
+            <button class="product-card-add"
+              data-product='{"id":"iphone15","name":"iPhone 15","image":"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center","price":37999,"storage":"128GB","color":"Pink"}'>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="8" cy="21" r="1" />
+                <circle cx="21" cy="21" r="1" />
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+              </svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center"
+              alt="Samsung Galaxy Z Fold 5" loading="lazy">
+            <div class="product-card-badges">
+              <span class="badge badge-new">New</span>
+            </div>
+            <div class="product-card-actions">
+              <button class="product-card-action wishlist-btn" data-id="zfold5" title="Add to wishlist">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-card-body">
+            <div class="product-card-brand">Samsung</div>
+            <h3 class="product-card-title">Galaxy Z Fold 5</h3>
+            <div class="product-card-specs">
+              <span class="product-card-spec">256GB</span>
+              <span class="product-card-spec">12GB RAM</span>
+              <span class="product-card-spec">Icy Blue</span>
+            </div>
+            <div class="product-card-price-row">
+              <span class="product-card-price">EGP 86,499</span>
+            </div>
+            <div class="product-card-stock in-stock">In Stock</div>
+            <button class="product-card-add"
+              data-product='{"id":"zfold5","name":"Samsung Galaxy Z Fold 5","image":"https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center","price":86499,"storage":"256GB","color":"Icy Blue"}'>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="8" cy="21" r="1" />
+                <circle cx="21" cy="21" r="1" />
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+              </svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://images.unsplash.com/photo-1774437342043-12ffa8880899?w=400&h=400&fit=crop&crop=center"
+              alt="Xiaomi 14 Pro" loading="lazy">
+            <div class="product-card-actions">
+              <button class="product-card-action wishlist-btn" data-id="mi14pro" title="Add to wishlist">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-card-body">
+            <div class="product-card-brand">Xiaomi</div>
+            <h3 class="product-card-title">Xiaomi 14 Pro</h3>
+            <div class="product-card-specs">
+              <span class="product-card-spec">256GB</span>
+              <span class="product-card-spec">12GB RAM</span>
+              <span class="product-card-spec">Black</span>
+            </div>
+            <div class="product-card-price-row">
+              <span class="product-card-price">EGP 35,999</span>
+            </div>
+            <div class="product-card-stock in-stock">In Stock</div>
+            <button class="product-card-add"
+              data-product='{"id":"mi14pro","name":"Xiaomi 14 Pro","image":"https://images.unsplash.com/photo-1774437342043-12ffa8880899?w=400&h=400&fit=crop&crop=center","price":35999,"storage":"256GB","color":"Black"}'>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="8" cy="21" r="1" />
+                <circle cx="21" cy="21" r="1" />
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+              </svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://images.unsplash.com/photo-1675557009285-b55f562641b9?w=400&h=400&fit=crop&crop=center"
+              alt="Nothing Phone 2" loading="lazy">
+            <div class="product-card-badges">
+              <span class="badge badge-new">New</span>
+            </div>
+            <div class="product-card-actions">
+              <button class="product-card-action wishlist-btn" data-id="nothing2" title="Add to wishlist">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-card-body">
+            <div class="product-card-brand">Nothing</div>
+            <h3 class="product-card-title">Phone 2</h3>
+            <div class="product-card-specs">
+              <span class="product-card-spec">256GB</span>
+              <span class="product-card-spec">12GB RAM</span>
+              <span class="product-card-spec">White</span>
+            </div>
+            <div class="product-card-price-row">
+              <span class="product-card-price">EGP 28,499</span>
+            </div>
+            <div class="product-card-stock in-stock">In Stock</div>
+            <button class="product-card-add"
+              data-product='{"id":"nothing2","name":"Nothing Phone 2","image":"https://images.unsplash.com/photo-1675557009285-b55f562641b9?w=400&h=400&fit=crop&crop=center","price":28499,"storage":"256GB","color":"White"}'>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="8" cy="21" r="1" />
+                <circle cx="21" cy="21" r="1" />
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+              </svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 48px;">
+        <a href="shop.html" class="btn btn-outline btn-lg">View All Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BEST DEALS ===== -->
+  <section class="section" style="background: var(--bg-alt);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Deals</span>
+        <h2 class="section-title">Best Deals</h2>
+        <p class="section-subtitle">Limited-time offers on premium smartphones. Don't miss out.</p>
+      </div>
+
+      <div class="product-grid stagger-children">
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://images.unsplash.com/photo-1689804847601-9648c50078bc?w=400&h=400&fit=crop&crop=center"
+              alt="Samsung Galaxy S23" loading="lazy">
+            <div class="product-card-badges">
+              <span class="badge badge-sale">-20%</span>
+            </div>
+            <div class="product-card-actions">
+              <button class="product-card-action wishlist-btn" data-id="s23" title="Add to wishlist">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-card-body">
+            <div class="product-card-brand">Samsung</div>
+            <h3 class="product-card-title">Galaxy S23</h3>
+            <div class="product-card-specs">
+              <span class="product-card-spec">128GB</span>
+              <span class="product-card-spec">8GB RAM</span>
+            </div>
+            <div class="product-card-rating">
+              <div class="product-card-stars">★★★★★</div>
+              <span class="product-card-reviews">(210 reviews)</span>
+            </div>
+            <div class="product-card-price-row">
+              <span class="product-card-price">EGP 28,499</span>
+              <span class="product-card-old-price">EGP 35,999</span>
+              <span class="product-card-discount">-20%</span>
+            </div>
+            <div class="product-card-stock in-stock">In Stock</div>
+            <button class="product-card-add"
+              data-product='{"id":"s23","name":"Samsung Galaxy S23","image":"https://images.unsplash.com/photo-1689804847601-9648c50078bc?w=400&h=400&fit=crop&crop=center","price":28499,"storage":"128GB","color":""}'>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://images.unsplash.com/photo-1727093493864-0bcbd16c7e6d?w=400&h=400&fit=crop&crop=center"
+              alt="iPhone 14 Pro Max" loading="lazy">
+            <div class="product-card-badges">
+              <span class="badge badge-sale">-18%</span>
+            </div>
+            <div class="product-card-actions">
+              <button class="product-card-action wishlist-btn" data-id="ip14pm" title="Add to wishlist">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-card-body">
+            <div class="product-card-brand">Apple</div>
+            <h3 class="product-card-title">iPhone 14 Pro Max</h3>
+            <div class="product-card-specs">
+              <span class="product-card-spec">256GB</span>
+              <span class="product-card-spec">6GB RAM</span>
+            </div>
+            <div class="product-card-price-row">
+              <span class="product-card-price">EGP 42,999</span>
+              <span class="product-card-old-price">EGP 52,499</span>
+              <span class="product-card-discount">-18%</span>
+            </div>
+            <div class="product-card-stock in-stock">In Stock</div>
+            <button class="product-card-add"
+              data-product='{"id":"ip14pm","name":"iPhone 14 Pro Max","image":"https://images.unsplash.com/photo-1727093493864-0bcbd16c7e6d?w=400&h=400&fit=crop&crop=center","price":42999,"storage":"256GB","color":""}'>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://images.unsplash.com/photo-1754331732629-d281d5797956?w=400&h=400&fit=crop&crop=center"
+              alt="Xiaomi 13T Pro" loading="lazy">
+            <div class="product-card-badges">
+              <span class="badge badge-sale">-25%</span>
+            </div>
+            <div class="product-card-actions">
+              <button class="product-card-action wishlist-btn" data-id="mi13tp" title="Add to wishlist">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-card-body">
+            <div class="product-card-brand">Xiaomi</div>
+            <h3 class="product-card-title">Xiaomi 13T Pro</h3>
+            <div class="product-card-specs">
+              <span class="product-card-spec">256GB</span>
+              <span class="product-card-spec">12GB RAM</span>
+            </div>
+            <div class="product-card-price-row">
+              <span class="product-card-price">EGP 23,999</span>
+              <span class="product-card-old-price">EGP 30,999</span>
+              <span class="product-card-discount">-25%</span>
+            </div>
+            <div class="product-card-stock in-stock">In Stock</div>
+            <button class="product-card-add"
+              data-product='{"id":"mi13tp","name":"Xiaomi 13T Pro","image":"https://images.unsplash.com/photo-1754331732629-d281d5797956?w=400&h=400&fit=crop&crop=center","price":23999,"storage":"256GB","color":""}'>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://images.unsplash.com/photo-1527747471697-174c755627dd?w=400&h=400&fit=crop&crop=center"
+              alt="OnePlus 11" loading="lazy">
+            <div class="product-card-badges">
+              <span class="badge badge-sale">-22%</span>
+            </div>
+            <div class="product-card-actions">
+              <button class="product-card-action wishlist-btn" data-id="op11" title="Add to wishlist">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-card-body">
+            <div class="product-card-brand">OnePlus</div>
+            <h3 class="product-card-title">OnePlus 11</h3>
+            <div class="product-card-specs">
+              <span class="product-card-spec">256GB</span>
+              <span class="product-card-spec">16GB RAM</span>
+            </div>
+            <div class="product-card-price-row">
+              <span class="product-card-price">EGP 23,999</span>
+              <span class="product-card-old-price">EGP 30,999</span>
+              <span class="product-card-discount">-22%</span>
+            </div>
+            <div class="product-card-stock low-stock">Only 3 left</div>
+            <button class="product-card-add"
+              data-product='{"id":"op11","name":"OnePlus 11","image":"https://images.unsplash.com/photo-1527747471697-174c755627dd?w=400&h=400&fit=crop&crop=center","price":23999,"storage":"256GB","color":""}'>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY CHOOSE US ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Why Choose Us</span>
+        <h2 class="section-title">Why Omar Phone?</h2>
+        <p class="section-subtitle">We deliver excellence with every phone we sell.</p>
+      </div>
+
+      <div class="features-grid stagger-children">
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <div class="feature-card-title">Certified Devices</div>
+          <div class="feature-card-text">Every phone is professionally tested and certified for quality.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div>
+          <div class="feature-card-title">12-Month Warranty</div>
+          <div class="feature-card-text">All devices come with a comprehensive warranty for peace of mind.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2" />
+              <path d="M16 17h-5a2 2 0 0 1-2-2v-2" />
+              <rect x="15" y="7" width="7" height="6" rx="1" />
+              <circle cx="7" cy="19" r="2" />
+              <circle cx="17" cy="19" r="2" />
+            </svg>
+          </div>
+          <div class="feature-card-title">Fast Delivery</div>
+          <div class="feature-card-text">Free delivery within 24 hours across the city. Same-day available.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+              <line x1="7" x2="7.01" y1="7" y2="7" />
+            </svg>
+          </div>
+          <div class="feature-card-title">Best Prices</div>
+          <div class="feature-card-text">We guarantee the most competitive prices on all devices.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="5" />
+              <path d="M3 21a9 9 0 0 1 18 0" />
+            </svg>
+          </div>
+          <div class="feature-card-title">Trusted Seller</div>
+          <div class="feature-card-text">10,000+ happy customers trust Omar Phone for their devices.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 4 23 10 17 10" />
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+            </svg>
+          </div>
+          <div class="feature-card-title">Trade-In Available</div>
+          <div class="feature-card-text">Upgrade your phone and get up to 50% off with your old device.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </div>
+          <div class="feature-card-title">Excellent Support</div>
+          <div class="feature-card-text">Our team is here to help you 24/7 with any questions or concerns.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+              <path d="M12 6v6l4 2" />
+            </svg>
+          </div>
+          <div class="feature-card-title">Installment Plans</div>
+          <div class="feature-card-text">Flexible payment options available. Own your dream phone today.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATISTICS ===== -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card reveal">
+          <div class="stat-number" data-count="1000" data-suffix="+">0+</div>
+          <div class="stat-label">Happy Customers</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number" data-count="500" data-suffix="+">0+</div>
+          <div class="stat-label">Phones Sold</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number" data-count="10" data-suffix="+">0+</div>
+          <div class="stat-label">Brands Available</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number" data-count="1" data-suffix="+">0+</div>
+          <div class="stat-label">Years of Experience</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="section testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Testimonials</span>
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="section-subtitle">Trusted by thousands of happy customers across the city.</p>
+      </div>
+
+      <div class="testimonials-slider">
+        <div class="testimonials-track">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="testimonial-quote">"</div>
+              <p class="testimonial-text">Absolutely amazing service! I bought an iPhone 15 Pro Max from Omar Phone and
+                it was delivered within 4 hours. The phone was genuine, sealed, and at a much better price than any
+                other store. Highly recommended!</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">AM</div>
+                <div>
+                  <div class="testimonial-name">Ahmed Mohammed</div>
+                  <div class="testimonial-role">Regular Customer</div>
+                  <div class="testimonial-stars">★★★★★</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="testimonial-quote">"</div>
+              <p class="testimonial-text">I've been buying from Omar Phone for years, and they never disappoint
+                completely. The Galaxy S24 Ultra I bought looks and works like brand new. The 12-month warranty gave me
+                so much confidence. Will definitely buy again!</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">SN</div>
+                <div>
+                  <div class="testimonial-name">Sara Nasser</div>
+                  <div class="testimonial-role">Verified Buyer</div>
+                  <div class="testimonial-stars">★★★★★</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="testimonial-quote">"</div>
+              <p class="testimonial-text">Best mobile store in town! I've bought three phones from Omar Phone for my
+                family and every single experience was perfect. Their customer support is outstanding and the prices are
+                unbeatable. Truly a premium experience.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">KA</div>
+                <div>
+                  <div class="testimonial-name">Khalid Al-Rashid</div>
+                  <div class="testimonial-role">Family Customer</div>
+                  <div class="testimonial-stars">★★★★★</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="testimonial-quote">"</div>
+              <p class="testimonial-text">I traded in my old phone for a Google Pixel 8 Pro and the process was so
+                smooth. They gave me a great price for my old device and the new phone was set up and ready to go. This
+                is the standard all phone stores should follow!</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">LH</div>
+                <div>
+                  <div class="testimonial-name">Layla Hassan</div>
+                  <div class="testimonial-role">Trade-In Customer</div>
+                  <div class="testimonial-stars">★★★★★</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonials-nav">
+          <button class="testimonial-dot active" aria-label="Slide 1"></button>
+          <button class="testimonial-dot" aria-label="Slide 2"></button>
+          <button class="testimonial-dot" aria-label="Slide 3"></button>
+          <button class="testimonial-dot" aria-label="Slide 4"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-inner">
+        <h2 class="newsletter-title">Stay Updated</h2>
+        <p class="newsletter-text">Subscribe to our newsletter and be the first to know about new arrivals, exclusive
+          deals, and special offers.</p>
+        <form class="newsletter-form">
+          <input type="email" class="newsletter-input" placeholder="Enter your email address" required
+            aria-label="Email address">
+          <button type="submit" class="btn btn-secondary btn-lg"
+            style="background: #FFFFFF; color: var(--primary);">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                <line x1="12" x2="12.01" y1="18" y2="18" />
+              </svg>
+            </div>
+            <div class="footer-logo-text">OMAR <span>PHONE</span></div>
+          </div>
+          <p class="footer-description">Your trusted mobile phone store. We offer premium new
+            smartphones, accessories, and professional repair services. Best phones. Best prices.</p>
+          <div class="footer-social">
+            <a href="#" class="footer-social-link" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+                <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <div class="footer-links">
+            <a href="shop.html" class="footer-link">Shop All</a> <a href="accessories.html"
+              class="footer-link">Accessories</a>
+            <a href="about.html" class="footer-link">About Us</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Support</h4>
+          <div class="footer-links">
+            <a href="faq.html" class="footer-link">FAQ</a>
+            <a href="privacy.html" class="footer-link">Privacy Policy</a>
+            <a href="terms.html" class="footer-link">Terms & Conditions</a>
+            <a href="contact.html" class="footer-link">Support Center</a>
+            <a href="wishlist.html" class="footer-link">Wishlist</a>
+            <a href="cart.html" class="footer-link">Cart</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Contact Us</h4>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </div>
+            <span>Gamal Abdel Nasser Street, Shibin El Kom<br>Menofia, Egypt</span>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+            </div>
+            <span>+201060173361</span>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+            </div>
+            <span>info@omarphone.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+            </div>
+            <span>Sat - Thu: 12:00 AM - 12:00 PM<br>Friday: 4:00 PM - 12:00 PM</span>
+          </div>
+
+          <h4 class="footer-heading" style="margin-top: 24px;">We Accept</h4>
+          <div class="footer-payment">
+            <div class="footer-payment-item">Visa</div>
+            <div class="footer-payment-item">MC</div>
+            <div class="footer-payment-item">Amex</div>
+            <div class="footer-payment-item">PayPal</div>
+            <div class="footer-payment-item">Apple</div>
+            <div class="footer-payment-item">Cash</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Omar Phone. All rights reserved.</span>
+        <span>Designed with care for our customers.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path d="m18 15-6-6-6 6" />
+    </svg>
+  </button>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.product-card-add').forEach(btn => {
+        btn.addEventListener('click', () => {
+          try {
+            const product = JSON.parse(btn.dataset.product);
+            if (window.OmarPhone) {
+              window.OmarPhone.addToCart(product);
+            }
+          } catch (e) { }
+        });
+      });
+
+      document.querySelectorAll('.wishlist-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.id;
+          const card = btn.closest('.product-card');
+          const name = card.querySelector('.product-card-title').textContent;
+          const image = card.querySelector('.product-card-image img').src;
+          const priceText = card.querySelector('.product-card-price').textContent;
+          const price = parseFloat(priceText.replace(/[^0-9.]/g, ''));
+          const storage = card.querySelector('.product-card-spec')?.textContent || '';
+          const product = { id, name, image, price, storage, color: '' };
+          if (window.OmarPhone) {
+            window.OmarPhone.toggleWishlist(product);
+            btn.classList.toggle('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
