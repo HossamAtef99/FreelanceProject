@@ -27,6 +27,7 @@
     initToast();
     initProductCardLinks();
     initAdminLink();
+    initAccountLink();
   });
 
   /* ----- Preloader ----- */
@@ -304,7 +305,19 @@
     triggerEvent(document, 'cartUpdated');
   }
 
+  function isLoggedIn() {
+    return localStorage.getItem('op_user_logged') === '1';
+  }
+
+  function requireAuth() {
+    if (isLoggedIn()) return true;
+    showToast('Please sign in first', 'error');
+    setTimeout(() => window.location.href = 'login.html', 800);
+    return false;
+  }
+
   function addToCart(product) {
+    if (!requireAuth()) return;
     const cart = getCart();
     const existing = cart.find(item => item.id === product.id && item.storage === product.storage && item.color === product.color);
     if (existing) {
@@ -350,6 +363,7 @@
   }
 
   function toggleWishlist(product) {
+    if (!requireAuth()) return false;
     const wishlist = getWishlist();
     const index = wishlist.findIndex(item => item.id === product.id);
     if (index > -1) {
@@ -515,11 +529,38 @@
 
   /* ----- Expose to global scope ----- */
   function initAdminLink() {
-    if (sessionStorage.getItem('op_admin_logged') === '1') {
+    if (localStorage.getItem('op_admin_logged') === '1') {
       const nav = document.getElementById('adminNavLink');
       if (nav) nav.style.display = '';
       const mobile = document.getElementById('adminMobileLink');
       if (mobile) mobile.style.display = '';
+    }
+  }
+
+  function initAccountLink() {
+    const link = document.getElementById('accountLink');
+    if (!link) return;
+    if (localStorage.getItem('op_user_logged') === '1') {
+      link.href = 'profile.html';
+      addProfileMobileLink();
+    } else {
+      link.href = 'login.html';
+    }
+  }
+
+  function addProfileMobileLink() {
+    const container = document.querySelector('.mobile-menu-links');
+    if (!container) return;
+    if (container.querySelector('.profile-mobile-link')) return;
+    const divider = container.querySelector('.mobile-menu-divider');
+    const profileLink = document.createElement('a');
+    profileLink.href = 'profile.html';
+    profileLink.className = 'mobile-menu-link profile-mobile-link';
+    profileLink.textContent = 'Profile';
+    if (divider && divider.nextSibling) {
+      container.insertBefore(profileLink, divider.nextSibling);
+    } else {
+      container.appendChild(profileLink);
     }
   }
 
@@ -537,6 +578,8 @@
     showToast,
     getIcon,
     updateBadge,
+    isLoggedIn,
+    requireAuth,
   };
 
 })();

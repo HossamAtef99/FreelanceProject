@@ -35,6 +35,8 @@
     products = hardcodedProducts;
     return products;
   }
+
+  const galleryImages = {
     iphone15pm: [
       'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&h=600&fit=crop&crop=center',
       'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center',

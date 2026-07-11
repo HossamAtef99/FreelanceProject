@@ -1,8 +1,6 @@
 (function() {
   'use strict';
 
-  const ADMIN_PASSWORD = 'admin123';
-  const ADMIN_EMAIL = 'admin@omarphone.com';
   const STORAGE_KEY = 'op_admin_products';
 
   let editingId = null;
@@ -49,6 +47,7 @@
   function renderTable() {
     const products = getProducts();
     const tbody = document.getElementById('productsBody');
+    if (!tbody) return;
     tbody.innerHTML = products.map(p => `
       <tr>
         <td><img src="${p.image}" alt="${p.name}" style="width:48px;height:48px;object-fit:cover;border-radius:var(--radius-sm);"></td>
@@ -175,52 +174,37 @@
     document.getElementById('productModal').style.display = 'none';
   }
 
-  function showToast(msg) {
+  function showToast(msg, type) {
     const el = document.getElementById('toast');
     if (!el) return;
     el.textContent = msg;
-    el.classList.add('show');
+    el.className = 'toast show' + (type ? ' ' + type : '');
     clearTimeout(el._t);
     el._t = setTimeout(() => el.classList.remove('show'), 2500);
   }
 
-  function checkLogin() {
-    return sessionStorage.getItem('op_admin_logged') === '1';
+  async function checkAdminSession() {
+    const { data: { session }, error } = await supabase.auth.getSession();
+    if (error || !session || session.user?.email !== 'admin@omarphone.com') {
+      localStorage.removeItem('op_admin_logged');
+      window.location.href = 'login.html';
+      return false;
+    }
+    localStorage.setItem('op_admin_logged', '1');
+    return true;
   }
 
-  function showLogin() {
-    document.getElementById('adminLoginSection').style.display = '';
-    document.getElementById('adminDashboardSection').style.display = 'none';
-  }
+  document.addEventListener('DOMContentLoaded', async () => {
+    const authed = await checkAdminSession();
+    if (!authed) return;
 
-  function showDashboard() {
-    document.getElementById('adminLoginSection').style.display = 'none';
     document.getElementById('adminDashboardSection').style.display = '';
     renderTable();
-  }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    if (checkLogin()) {
-      showDashboard();
-    } else {
-      showLogin();
-    }
-
-    document.getElementById('adminLoginForm').addEventListener('submit', e => {
-      e.preventDefault();
-      const email = document.getElementById('adminEmail').value.trim();
-      const pw = document.getElementById('adminPassword').value;
-      if (email === ADMIN_EMAIL && pw === ADMIN_PASSWORD) {
-        sessionStorage.setItem('op_admin_logged', '1');
-        showDashboard();
-      } else {
-        document.getElementById('adminPasswordError').style.display = 'block';
-      }
-    });
-
-    document.getElementById('logoutBtn').addEventListener('click', () => {
-      sessionStorage.removeItem('op_admin_logged');
-      showLogin();
+    document.getElementById('logoutBtn').addEventListener('click', async () => {
+      await supabase.auth.signOut();
+      localStorage.removeItem('op_admin_logged');
+      window.location.href = 'login.html';
     });
 
     document.getElementById('addProductBtn').addEventListener('click', openAddModal);
@@ -242,15 +226,6 @@
         preview.style.display = '';
       };
       reader.readAsDataURL(file);
-    });
-
-    const emailInput = document.getElementById('adminEmail');
-    const pwInput = document.getElementById('adminPassword');
-    emailInput.addEventListener('input', () => {
-      document.getElementById('adminPasswordError').style.display = 'none';
-    });
-    pwInput.addEventListener('input', () => {
-      document.getElementById('adminPasswordError').style.display = 'none';
     });
   });
 })();

@@ -156,13 +156,27 @@
   }
 
   function checkout() {
+    if (window.OmarPhone && !window.OmarPhone.requireAuth()) return;
     const cart = getCart();
     if (!cart.length) {
       if (window.OmarPhone) window.OmarPhone.showToast('Your cart is empty', 'error');
       return;
     }
+    const order = {
+      id: Date.now().toString(36) + Math.random().toString(36).substring(2, 6),
+      items: cart,
+      total: parseFloat(document.getElementById('summaryTotal')?.textContent?.replace('EGP ', '') || 0),
+      date: new Date().toISOString(),
+      status: 'pending',
+      payment: 'Cash on Delivery',
+    };
+    try {
+      const orders = JSON.parse(localStorage.getItem('op_orders') || '[]');
+      orders.push(order);
+      localStorage.setItem('op_orders', JSON.stringify(orders));
+    } catch {}
     if (window.OmarPhone) {
-      window.OmarPhone.showToast('Order placed successfully!', 'success');
+      window.OmarPhone.showToast('Order placed! Pay with cash upon delivery.', 'success');
       window.OmarPhone.clearCart();
     }
   }

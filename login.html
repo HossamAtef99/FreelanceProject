@@ -50,7 +50,7 @@
         <a href="admin.html" class="navbar-action" id="adminNavLink" aria-label="Admin" style="display:none;">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </a>
-        <a href="login.html" class="navbar-action" aria-label="Account">
+        <a href="login.html" class="navbar-action" id="accountLink" aria-label="Account">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M3 21a9 9 0 0 1 18 0"/></svg>
         </a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
@@ -266,6 +266,8 @@
   </button>
   <div class="toast" id="toast"></div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
   <script src="js/main.js"></script>
   <script src="js/auth.js"></script>
 </body>
