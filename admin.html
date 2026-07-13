@@ -175,27 +175,26 @@
               <input type="text" class="form-input" id="formRam" placeholder="e.g. 8GB" required>
             </div>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-            <div class="form-group">
-              <label class="form-label" for="formColor">Color</label>
-              <input type="text" class="form-input" id="formColor" placeholder="e.g. Titanium" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="formCategory">Category</label>
-              <select class="form-input" id="formCategory" required>
-                <option value="phones">Phones</option>
-                <option value="tablets">Tablets</option>
-                <option value="watches">Watches</option>
-                <option value="earbuds">Earbuds</option>
-                <option value="chargers">Chargers</option>
-                <option value="powerbanks">Power Banks</option>
-                <option value="accessories">Accessories</option>
-              </select>
-            </div>
+          <div class="form-group">
+            <label class="form-label">Colors (select one or more)</label>
+            <div id="colorPicker" style="display:flex;flex-wrap:wrap;gap:6px;padding:4px 0;"></div>
+            <input type="text" class="form-input" id="formCustomColors" placeholder="Custom colors (comma separated)" style="margin-top:6px;">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="formCategory">Category</label>
+            <select class="form-input" id="formCategory" required>
+              <option value="phones">Phones</option>
+              <option value="tablets">Tablets</option>
+              <option value="watches">Watches</option>
+              <option value="earbuds">Earbuds</option>
+              <option value="chargers">Chargers</option>
+              <option value="powerbanks">Power Banks</option>
+              <option value="accessories">Accessories</option>
+            </select>
           </div>
           <div class="form-group">
             <label class="form-label">Product Image</label>
-            <input type="file" class="form-input" id="formImageFile" accept="image/*" required>
+            <input type="file" class="form-input" id="formImageFile" accept="image/*">
             <div id="imagePreview" style="margin-top:8px;display:none;">
               <img src="" alt="Preview" style="max-width:120px;max-height:120px;border-radius:var(--radius-sm);border:1px solid var(--border);">
             </div>

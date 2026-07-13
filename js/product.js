@@ -92,7 +92,7 @@
     }
 
     currentProduct = product;
-    selectedColor = product.color;
+    selectedColor = (product.colors && product.colors[0]) || product.color || '';
     selectedStorage = product.storage;
     renderProduct(product);
     renderRelatedProducts(product);
