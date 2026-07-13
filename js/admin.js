@@ -2,7 +2,7 @@
   'use strict';
 
   const STORAGE_KEY = 'op_admin_products';
-  const API_BASE = window.location.origin;
+  const API_BASE = 'http://localhost:3000';
 
   let editingId = null;
 
@@ -68,26 +68,26 @@
 
   function getDefaultProducts() {
     return [
-      { id: 'iphone15pm', name: 'iPhone 15 Pro Max', brand: 'Apple', image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop&crop=center', price: 57499, oldPrice: 62499, storage: '256GB', ram: '8GB', colors: ['Titanium'], color: 'Titanium', rating: 5, reviews: 128, stock: true, category: 'phones', badge: 'New', popular: 95 },
-      { id: 's24ultra', name: 'Galaxy S24 Ultra', brand: 'Samsung', image: 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center', price: 52499, oldPrice: 62499, storage: '512GB', ram: '12GB', colors: ['Titanium Gray'], color: 'Titanium Gray', rating: 5, reviews: 94, stock: true, category: 'phones', badge: 'Sale', popular: 90 },
-      { id: 'pixel8pro', name: 'Pixel 8 Pro', brand: 'Google', image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&h=400&fit=crop&crop=center', price: 42999, oldPrice: 47999, storage: '128GB', ram: '12GB', colors: ['Obsidian'], color: 'Obsidian', rating: 5, reviews: 76, stock: true, category: 'phones', badge: '', popular: 88 },
-      { id: 'oneplus12', name: 'OnePlus 12', brand: 'OnePlus', image: 'https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400&h=400&fit=crop&crop=center', price: 33499, oldPrice: 37999, storage: '256GB', ram: '16GB', colors: ['Flowy Emerald'], color: 'Flowy Emerald', rating: 5, reviews: 52, stock: true, category: 'phones', badge: 'Best Seller', popular: 85 },
-      { id: 'iphone15', name: 'iPhone 15', brand: 'Apple', image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center', price: 37999, oldPrice: 0, storage: '128GB', ram: '6GB', colors: ['Pink'], color: 'Pink', rating: 4, reviews: 210, stock: true, category: 'phones', badge: 'New', popular: 92 },
-      { id: 'zfold5', name: 'Galaxy Z Fold 5', brand: 'Samsung', image: 'https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center', price: 86499, oldPrice: 0, storage: '256GB', ram: '12GB', colors: ['Icy Blue'], color: 'Icy Blue', rating: 5, reviews: 43, stock: true, category: 'phones', badge: 'Premium', popular: 78 },
-      { id: 'mi14pro', name: 'Xiaomi 14 Pro', brand: 'Xiaomi', image: 'https://images.unsplash.com/photo-1774437342043-12ffa8880899?w=400&h=400&fit=crop&crop=center', price: 35999, oldPrice: 0, storage: '256GB', ram: '12GB', colors: ['Black'], color: 'Black', rating: 4, reviews: 67, stock: true, category: 'phones', badge: '', popular: 80 },
-      { id: 'nothing2', name: 'Phone 2', brand: 'Nothing', image: 'https://images.unsplash.com/photo-1675557009285-b55f562641b9?w=400&h=400&fit=crop&crop=center', price: 28499, oldPrice: 0, storage: '256GB', ram: '12GB', colors: ['White'], color: 'White', rating: 4, reviews: 38, stock: true, category: 'phones', badge: 'New', popular: 82 },
-      { id: 's23', name: 'Galaxy S23', brand: 'Samsung', image: 'https://images.unsplash.com/photo-1689804847601-9648c50078bc?w=400&h=400&fit=crop&crop=center', price: 28499, oldPrice: 35999, storage: '128GB', ram: '8GB', colors: ['Phantom Black'], color: 'Phantom Black', rating: 5, reviews: 210, stock: true, category: 'phones', badge: '-20%', popular: 75 },
-      { id: 'ip14pm', name: 'iPhone 14 Pro Max', brand: 'Apple', image: 'https://images.unsplash.com/photo-1727093493864-0bcbd16c7e6d?w=400&h=400&fit=crop&crop=center', price: 42999, oldPrice: 52499, storage: '256GB', ram: '6GB', colors: ['Deep Purple'], color: 'Deep Purple', rating: 5, reviews: 186, stock: true, category: 'phones', badge: '-18%', popular: 70 },
-      { id: 'mi13tp', name: 'Xiaomi 13T Pro', brand: 'Xiaomi', image: 'https://images.unsplash.com/photo-1754331732629-d281d5797956?w=400&h=400&fit=crop&crop=center', price: 23999, oldPrice: 30999, storage: '256GB', ram: '12GB', colors: ['Alpine Blue'], color: 'Alpine Blue', rating: 4, reviews: 92, stock: true, category: 'phones', badge: '-25%', popular: 65 },
-      { id: 'op11', name: 'OnePlus 11', brand: 'OnePlus', image: 'https://images.unsplash.com/photo-1527747471697-174c755627dd?w=400&h=400&fit=crop&crop=center', price: 23999, oldPrice: 30999, storage: '256GB', ram: '16GB', colors: ['Eternal Green'], color: 'Eternal Green', rating: 4, reviews: 78, stock: false, category: 'phones', badge: '-22%', popular: 60 },
-      { id: 'honor90', name: 'Honor 90', brand: 'Honor', image: 'https://images.unsplash.com/photo-1551636898-47668aa61de2?w=400&h=400&fit=crop&crop=center', price: 21499, oldPrice: 0, storage: '256GB', ram: '12GB', colors: ['Emerald Green'], color: 'Emerald Green', rating: 4, reviews: 34, stock: true, category: 'phones', badge: 'New', popular: 55 },
-      { id: 'oppofindn3', name: 'OPPO Find N3 Flip', brand: 'Oppo', image: 'https://images.unsplash.com/photo-1649859394614-dc4f7290b7f2?w=400&h=400&fit=crop&crop=center', price: 47999, oldPrice: 0, storage: '256GB', ram: '12GB', colors: ['Gold'], color: 'Gold', rating: 4, reviews: 22, stock: true, category: 'phones', badge: 'New', popular: 58 },
+      { id: 'iphone15pm', name: 'iPhone 15 Pro Max', brand: 'Apple', images: ['https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center'], image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop&crop=center', price: 57499, oldPrice: 62499, storage: '256GB', ram: '8GB', colors: ['Titanium'], color: 'Titanium', rating: 5, reviews: 128, stock: true, category: 'phones', badge: 'New', popular: 95 },
+      { id: 's24ultra', name: 'Galaxy S24 Ultra', brand: 'Samsung', images: ['https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center'], image: 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center', price: 52499, oldPrice: 62499, storage: '512GB', ram: '12GB', colors: ['Titanium Gray'], color: 'Titanium Gray', rating: 5, reviews: 94, stock: true, category: 'phones', badge: 'Sale', popular: 90 },
+      { id: 'pixel8pro', name: 'Pixel 8 Pro', brand: 'Google', images: ['https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center'], image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&h=400&fit=crop&crop=center', price: 42999, oldPrice: 47999, storage: '128GB', ram: '12GB', colors: ['Obsidian'], color: 'Obsidian', rating: 5, reviews: 76, stock: true, category: 'phones', badge: '', popular: 88 },
+      { id: 'oneplus12', name: 'OnePlus 12', brand: 'OnePlus', images: ['https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center'], image: 'https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400&h=400&fit=crop&crop=center', price: 33499, oldPrice: 37999, storage: '256GB', ram: '16GB', colors: ['Flowy Emerald'], color: 'Flowy Emerald', rating: 5, reviews: 52, stock: true, category: 'phones', badge: 'Best Seller', popular: 85 },
+      { id: 'iphone15', name: 'iPhone 15', brand: 'Apple', images: ['https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center'], image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center', price: 37999, oldPrice: 0, storage: '128GB', ram: '6GB', colors: ['Pink'], color: 'Pink', rating: 4, reviews: 210, stock: true, category: 'phones', badge: 'New', popular: 92 },
+      { id: 'zfold5', name: 'Galaxy Z Fold 5', brand: 'Samsung', images: ['https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center'], image: 'https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center', price: 86499, oldPrice: 0, storage: '256GB', ram: '12GB', colors: ['Icy Blue'], color: 'Icy Blue', rating: 5, reviews: 43, stock: true, category: 'phones', badge: 'Premium', popular: 78 },
+      { id: 'mi14pro', name: 'Xiaomi 14 Pro', brand: 'Xiaomi', images: ['https://images.unsplash.com/photo-1774437342043-12ffa8880899?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center'], image: 'https://images.unsplash.com/photo-1774437342043-12ffa8880899?w=400&h=400&fit=crop&crop=center', price: 35999, oldPrice: 0, storage: '256GB', ram: '12GB', colors: ['Black'], color: 'Black', rating: 4, reviews: 67, stock: true, category: 'phones', badge: '', popular: 80 },
+      { id: 'nothing2', name: 'Phone 2', brand: 'Nothing', images: ['https://images.unsplash.com/photo-1675557009285-b55f562641b9?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center'], image: 'https://images.unsplash.com/photo-1675557009285-b55f562641b9?w=400&h=400&fit=crop&crop=center', price: 28499, oldPrice: 0, storage: '256GB', ram: '12GB', colors: ['White'], color: 'White', rating: 4, reviews: 38, stock: true, category: 'phones', badge: 'New', popular: 82 },
+      { id: 's23', name: 'Galaxy S23', brand: 'Samsung', images: ['https://images.unsplash.com/photo-1689804847601-9648c50078bc?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center'], image: 'https://images.unsplash.com/photo-1689804847601-9648c50078bc?w=400&h=400&fit=crop&crop=center', price: 28499, oldPrice: 35999, storage: '128GB', ram: '8GB', colors: ['Phantom Black'], color: 'Phantom Black', rating: 5, reviews: 210, stock: true, category: 'phones', badge: '-20%', popular: 75 },
+      { id: 'ip14pm', name: 'iPhone 14 Pro Max', brand: 'Apple', images: ['https://images.unsplash.com/photo-1727093493864-0bcbd16c7e6d?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center'], image: 'https://images.unsplash.com/photo-1727093493864-0bcbd16c7e6d?w=400&h=400&fit=crop&crop=center', price: 42999, oldPrice: 52499, storage: '256GB', ram: '6GB', colors: ['Deep Purple'], color: 'Deep Purple', rating: 5, reviews: 186, stock: true, category: 'phones', badge: '-18%', popular: 70 },
+      { id: 'mi13tp', name: 'Xiaomi 13T Pro', brand: 'Xiaomi', images: ['https://images.unsplash.com/photo-1754331732629-d281d5797956?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center'], image: 'https://images.unsplash.com/photo-1754331732629-d281d5797956?w=400&h=400&fit=crop&crop=center', price: 23999, oldPrice: 30999, storage: '256GB', ram: '12GB', colors: ['Alpine Blue'], color: 'Alpine Blue', rating: 4, reviews: 92, stock: true, category: 'phones', badge: '-25%', popular: 65 },
+      { id: 'op11', name: 'OnePlus 11', brand: 'OnePlus', images: ['https://images.unsplash.com/photo-1527747471697-174c755627dd?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center'], image: 'https://images.unsplash.com/photo-1527747471697-174c755627dd?w=400&h=400&fit=crop&crop=center', price: 23999, oldPrice: 30999, storage: '256GB', ram: '16GB', colors: ['Eternal Green'], color: 'Eternal Green', rating: 4, reviews: 78, stock: false, category: 'phones', badge: '-22%', popular: 60 },
+      { id: 'honor90', name: 'Honor 90', brand: 'Honor', images: ['https://images.unsplash.com/photo-1551636898-47668aa61de2?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center'], image: 'https://images.unsplash.com/photo-1551636898-47668aa61de2?w=400&h=400&fit=crop&crop=center', price: 21499, oldPrice: 0, storage: '256GB', ram: '12GB', colors: ['Emerald Green'], color: 'Emerald Green', rating: 4, reviews: 34, stock: true, category: 'phones', badge: 'New', popular: 55 },
+      { id: 'oppofindn3', name: 'OPPO Find N3 Flip', brand: 'Oppo', images: ['https://images.unsplash.com/photo-1649859394614-dc4f7290b7f2?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center', 'https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center'], image: 'https://images.unsplash.com/photo-1649859394614-dc4f7290b7f2?w=400&h=400&fit=crop&crop=center', price: 47999, oldPrice: 0, storage: '256GB', ram: '12GB', colors: ['Gold'], color: 'Gold', rating: 4, reviews: 22, stock: true, category: 'phones', badge: 'New', popular: 58 },
     ];
   }
 
   async function getProducts() {
     try {
-      const res = await fetch('/api/admin/products');
+      const res = await fetch(API_BASE + '/api/admin/products');
       if (res.ok) {
         const all = await res.json();
         const merged = Object.values(all).flat();
@@ -106,7 +106,7 @@
 
   async function apiRequest(url, method, body) {
     try {
-      await fetch(url, {
+      await fetch(API_BASE + url, {
         method,
         headers: { 'Content-Type': 'application/json' },
         body: body ? JSON.stringify(body) : undefined,
@@ -157,6 +157,8 @@
     document.getElementById('formProductId').value = '';
     document.getElementById('formStock').checked = true;
     document.getElementById('formImageData').value = '';
+    document.getElementById('formImageFile').value = '';
+    document.getElementById('imagePreview').innerHTML = '';
     document.getElementById('imagePreview').style.display = 'none';
     document.getElementById('formCustomColors').value = '';
     renderColorPicker([]);
@@ -178,10 +180,14 @@
     document.getElementById('formStorage').value = p.storage || '';
     document.getElementById('formRam').value = p.ram || '';
     document.getElementById('formCategory').value = p.category || 'phones';
-    document.getElementById('formImageData').value = p.image || '';
+    const existingImages = p.images || (p.image ? [p.image] : []);
+    document.getElementById('formImageData').value = existingImages.length ? JSON.stringify(existingImages) : '';
+    document.getElementById('formImageFile').value = '';
     const preview = document.getElementById('imagePreview');
-    preview.querySelector('img').src = p.image || '';
-    preview.style.display = p.image ? '' : 'none';
+    preview.innerHTML = existingImages.map(url => `
+      <img src="${url}" alt="" style="width:90px;height:90px;object-fit:cover;border-radius:var(--radius-sm);border:1px solid var(--border);">
+    `).join('');
+    preview.style.display = existingImages.length ? '' : 'none';
     document.getElementById('formRating').value = p.rating || 5;
     document.getElementById('formReviews').value = p.reviews || 0;
     document.getElementById('formBadge').value = p.badge || '';
@@ -193,22 +199,24 @@
     document.getElementById('productModal').style.display = 'flex';
   }
 
-  function getImageValue() {
-    return document.getElementById('formImageData').value;
+  function getImageData() {
+    const raw = document.getElementById('formImageData').value;
+    if (!raw) return null;
+    try { return JSON.parse(raw); } catch { return null; }
   }
 
   async function saveForm(e) {
     e.preventDefault();
     const products = await getProducts();
     const id = document.getElementById('formProductId').value || generateId(document.getElementById('formName').value);
-    let image = getImageValue();
-    if (!image) {
+    let images = getImageData();
+    if (!images || !images.length) {
       if (editingId) {
         const existing = products.find(p => p.id === editingId);
-        if (existing) image = existing.image;
+        if (existing) images = existing.images || (existing.image ? [existing.image] : []);
       }
-      if (!image) {
-        showToast('Please upload a product image.');
+      if (!images || !images.length) {
+        showToast('Please upload at least one product image.');
         return;
       }
     }
@@ -224,7 +232,8 @@
       colors,
       color: colors[0] || '',
       category: document.getElementById('formCategory').value,
-      image,
+      images,
+      image: images[0] || '',
       rating: parseInt(document.getElementById('formRating').value) || 5,
       reviews: parseInt(document.getElementById('formReviews').value) || 0,
       badge: document.getElementById('formBadge').value.trim(),
@@ -302,17 +311,22 @@
     document.getElementById('productForm').addEventListener('submit', saveForm);
 
     document.getElementById('formImageFile').addEventListener('change', function() {
-      const file = this.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        const dataUrl = e.target.result;
-        document.getElementById('formImageData').value = dataUrl;
-        const preview = document.getElementById('imagePreview');
-        preview.querySelector('img').src = dataUrl;
-        preview.style.display = '';
-      };
-      reader.readAsDataURL(file);
+      const files = Array.from(this.files).slice(0, 4);
+      if (!files.length) return;
+      const preview = document.getElementById('imagePreview');
+      preview.innerHTML = '';
+      preview.style.display = '';
+      const promises = files.map(file => new Promise(resolve => {
+        const reader = new FileReader();
+        reader.onload = e => {
+          preview.innerHTML += `<img src="${e.target.result}" alt="" style="width:90px;height:90px;object-fit:cover;border-radius:var(--radius-sm);border:1px solid var(--border);">`;
+          resolve(e.target.result);
+        };
+        reader.readAsDataURL(file);
+      }));
+      Promise.all(promises).then(dataUrls => {
+        document.getElementById('formImageData').value = JSON.stringify(dataUrls);
+      });
     });
   });
 })();

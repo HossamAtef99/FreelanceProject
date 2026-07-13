@@ -3,6 +3,13 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
+  if (req.method === 'OPTIONS') return res.sendStatus(200);
+  next();
+});
 app.use(express.json({ limit: '50mb' }));
 app.use(express.static(path.join(__dirname)));
 
@@ -33,6 +40,21 @@ function writeCategory(category, products) {
   fs.writeFileSync(path.join(__dirname, file), JSON.stringify(products, null, 2));
   return true;
 }
+
+app.get('/api/products/all', (req, res) => {
+  const all = [];
+  for (const cat of Object.keys(CATEGORY_FILES)) {
+    const products = readCategory(cat);
+    all.push(...products);
+  }
+  res.json(all);
+});
+
+app.get('/api/product/:id', (req, res) => {
+  const found = findProductById(req.params.id);
+  if (!found) return res.status(404).json({ error: 'Product not found' });
+  res.json(found.product);
+});
 
 app.get('/api/products/:category', (req, res) => {
   res.json(readCategory(req.params.category));
