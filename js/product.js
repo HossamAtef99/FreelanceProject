@@ -9,10 +9,10 @@
       name: "iPhone 15 Pro Max",
       brand: "Apple",
       images: [
-        "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=600&h=600&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1700805732158-6f1169780ca7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aVBob25lJTIwMTUlMjBQcm8lMjBNYXh8ZW58MHx8MHx8fDA%3D",
+        "https://plus.unsplash.com/premium_photo-1681313824743-7b5a2a635938?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8aVBob25lJTIwMTUlMjBQcm8lMjBNYXh8ZW58MHx8MHx8fDA%3D",
+        "https://plus.unsplash.com/premium_photo-1680985551022-ad298e8a5f82?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGlQaG9uZSUyMDE1JTIwUHJvJTIwTWF4fGVufDB8fDB8fHww",
+        "https://images.unsplash.com/photo-1695823018812-c684c980ede6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGlQaG9uZSUyMDE1JTIwUHJvJTIwTWF4fGVufDB8fDB8fHww",
       ],
       image:
         "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&h=600&fit=crop&crop=center",
@@ -37,13 +37,13 @@
       name: "Galaxy S24 Ultra",
       brand: "Samsung",
       images: [
-        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=600&h=600&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1705530292519-ec81f2ace70d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8R2FsYXh5JTIwUzI0JTIwVWx0cmF8ZW58MHx8MHx8fDA%3D",
+        "https://images.unsplash.com/photo-1719069162732-93c2ef9edb1c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8R2FsYXh5JTIwUzI0JTIwVWx0cmF8ZW58MHx8MHx8fDA%3D",
+        "https://images.unsplash.com/photo-1705585174987-a9a033edbbb8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8R2FsYXh5JTIwUzI0JTIwVWx0cmF8ZW58MHx8MHx8fDA%3D",
+        "https://images.unsplash.com/photo-1709744722656-9b850470293f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE5fHx8ZW58MHx8fHx8",
       ],
       image:
-        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1705530292519-ec81f2ace70d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8R2FsYXh5JTIwUzI0JTIwVWx0cmF8ZW58MHx8MHx8fDA%3D",
       price: 52499,
       oldPrice: 62499,
       storage: "512GB",
@@ -62,13 +62,13 @@
     },
     {
       id: "pixel8pro",
-      name: "Pixel 8 Pro",
-      brand: "Google",
+      name: "Vivo X200 Ultra",
+      brand: "Vivo",
       images: [
-        "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=600&h=600&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1746366782635-aabca81d2719?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1755318535396-cdb062dc60bd?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1777029323558-a012782dca99?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D",
+        "https://images.unsplash.com/photo-1779005892739-def7e1108255?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8",
       ],
       image:
         "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&h=600&fit=crop&crop=center",
@@ -93,13 +93,13 @@
       name: "OnePlus 12",
       brand: "OnePlus",
       images: [
-        "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=600&h=600&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1773293915424-c0809e512236?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D",
+        "https://images.unsplash.com/photo-1772947793009-855264c693b8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8",
+        "https://www.oneplus.com/content/dam/oasis/page/waffle-en/images-ksp-7-d7111.jpg.avif",
+        "https://www.oneplus.com/content/dam/oasis/page/waffle-en/images-ksp-7-d7111.jpg.avif",
       ],
       image:
-        "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=600&h=600&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1773293915424-c0809e512236?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D",
       price: 33499,
       oldPrice: 37999,
       storage: "256GB",
@@ -121,13 +121,13 @@
       name: "iPhone 15",
       brand: "Apple",
       images: [
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=600&h=600&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1726574686436-5ef90358e032?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI2fHx8ZW58MHx8fHx8",
+        "https://images.unsplash.com/photo-1647503380147-e075b24f4cbe?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE3fHx8ZW58MHx8fHx8",
+        "https://images.unsplash.com/photo-1663314326576-13b6ab7fd5d4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D",
+        "https://images.unsplash.com/photo-1711967299865-c88350fddb70?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D",
       ],
       image:
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1726574686436-5ef90358e032?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI2fHx8ZW58MHx8fHx8",
       price: 37999,
       oldPrice: 0,
       storage: "128GB",
@@ -150,9 +150,9 @@
       brand: "Samsung",
       images: [
         "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=600&h=600&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1692813000118-30a02e57167c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8R2FsYXh5JTIwWiUyMEZvbGQlMjA1fGVufDB8fDB8fHww",
+        "https://plus.unsplash.com/premium_photo-1706548331079-f46bc392cdea?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8",
+        "https://images.unsplash.com/photo-1657731739861-b21d95062cbf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDM5fHx8ZW58MHx8fHx8",
       ],
       image:
         "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=600&h=600&fit=crop&crop=center",
@@ -201,17 +201,17 @@
       popular: 80,
     },
     {
-      id: "nothing2",
-      name: "Phone 2",
-      brand: "Nothing",
+      id: "redmi_a15",
+      name: "Redmi A15",
+      brand: "Redmi",
       images: [
-        "https://images.unsplash.com/photo-1675557009285-b55f562641b9?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=600&h=600&fit=crop&crop=center",
+        "https://i02.appmifile.com/mi-com-product/fly-birds/redmi-15/pc/ba48808178d85b82290883a3666f8c3b.jpg?f=webp",
+        "https://i02.appmifile.com/mi-com-product/fly-birds/redmi-15/pc/cedbccfb421e7f985b81772417099808.jpg?f=webp",
+        "https://i02.appmifile.com/mi-com-product/fly-birds/redmi-15/pc/purplephone.webp",
+        "https://i02.appmifile.com/mi-com-product/fly-birds/redmi-15/pc/43abe426110a19573c41cc3305c7c433.jpg?f=webp",
       ],
       image:
-        "https://images.unsplash.com/photo-1675557009285-b55f562641b9?w=600&h=600&fit=crop&crop=center",
+        "https://i02.appmifile.com/mi-com-product/fly-birds/redmi-15/pc/ba48808178d85b82290883a3666f8c3b.jpg?f=webp",
       price: 28499,
       oldPrice: 0,
       storage: "256GB",
@@ -289,13 +289,13 @@
       name: "Xiaomi 13T Pro",
       brand: "Xiaomi",
       images: [
-        "https://images.unsplash.com/photo-1754331732629-d281d5797956?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=600&h=600&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1695733349397-c6048dc7051a?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.openai.com/static-rsc-4/oXBpfCOjeSPvgjOXg2kSJgVfhAzROwDRIp6Wev9LXuRVepEUOAgga1adoNG0O3zJrhNpxaqsZQilXKhXwAtci61JmoCmRcrNtE5ZMHimk7MKnEq3_OzPWsHZKg1X07fMOvp9Nbka-RO9SDe_E459r_Al32-xzBTncYM4uV5RELshRQgo4WvUnzrXw_9Qrcj6?purpose=fullsize",
+        "https://images.openai.com/static-rsc-4/7ljE6NSsjnSdQKS36dOYEyQM3-wbUrhEtJYfsu9UlQ9RAuXtK2UZZCacTSdySByzGHdjMa975XRxLGPBMPNIwBTYJbzLar_zZzyc0ZJB_d9r-bZL7wK4ugpdDbZTF7vRDtY6Ir8QCwgs7mtYrI0vjFlxT0bMShO40sujaqRUDKMe7nhRL6IgIPPEmqcROM8X?purpose=fullsize",
+        "https://images.openai.com/static-rsc-4/yRJD0Z9aAJfDBlxzPmVKM3NgBmXjjimNpZ8FBzY0ZClUGWkTx2DYw-LRX6B3c91NGq0xrqem5mIr3-AL0UkJFaUAXAZqAABV_6VcAjg6iUeEEJ6iyW6sFMLkENwaC4EPPD6E49DlG3SuHNjQpcaGMOca7HgdiXyIRfe-3NjKu0hvjXufy2cRJPJBOYN8bjbU?purpose=fullsize",
       ],
       image:
-        "https://images.unsplash.com/photo-1754331732629-d281d5797956?w=600&h=600&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1695733349397-c6048dc7051a?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       price: 23999,
       oldPrice: 30999,
       storage: "256GB",
@@ -345,13 +345,13 @@
       name: "Honor 90",
       brand: "Honor",
       images: [
-        "https://images.unsplash.com/photo-1551636898-47668aa61de2?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop&crop=center",
-        "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=600&h=600&fit=crop&crop=center",
+        "https://mobizil.com/wp-content/uploads/2023/07/honor90-inhand.jpg",
+        "https://mobizil.com/wp-content/uploads/2023/07/Honor-90-Des-Look.jpg",
+        "https://mobizil.com/wp-content/uploads/2023/07/honor90-colors.jpg",
+        "https://cdn.shortpixel.ai/spai/w_231+q_glossy+ret_img+to_webp/mobizil.com/wp-content/uploads/2023/07/Honor-90-Camera-220x220.jpg",
       ],
       image:
-        "https://images.unsplash.com/photo-1551636898-47668aa61de2?w=600&h=600&fit=crop&crop=center",
+        "https://mobizil.com/wp-content/uploads/2023/07/honor90-inhand.jpg",
       price: 21499,
       oldPrice: 0,
       storage: "256GB",
@@ -396,17 +396,104 @@
       badge: "New",
       popular: 58,
     },
-    { id: 'charger-20w', name: '20W Fast Charger', price: 1399, category: 'chargers', image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=400&fit=crop' },
-        { id: 'silicone-case', name: 'Silicone Case', price: 899, category: 'cases', image: 'https://images.unsplash.com/photo-1542219550-76864b1bc385?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8U2lsaWNvbmUlMjBDYXNlfGVufDB8fDB8fHww' },
-        { id: 'airpods-pro-2', name: 'AirPods Pro 2', price: 11999, category: 'earbuds', image: 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QWlyUG9kcyUyMFBybyUyMDJ8ZW58MHx8MHx8fDA%3D' },
-        { id: 'galaxy-buds2-pro', name: 'Galaxy Buds2 Pro', price: 8999, category: 'earbuds', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFq2b-Waj15exyeb4wwqxfIShtv85C4r8errO1_jeKwA&s=10' },
-        { id: 'powerbank-10000', name: '10,000mAh Power Bank', price: 1899, category: 'powerbanks', image: 'https://images.unsplash.com/photo-1706275399524-813e89914e43?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBvd2VyYmFuay0xMDAwMHxlbnwwfHwwfHx8MA%3D%3D' },
-        { id: 'usb-c-cable', name: 'USB-C Cable', price: 749, category: 'cables', image: 'https://plus.unsplash.com/premium_photo-1759282946954-d1fdec6198eb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8VVNCLUMlMjBDYWJsZXxlbnwwfHwwfHx8MA%3D%3D' },
-        { id: 'car-charger', name: 'Car Charger', price: 1199, category: 'chargers', image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=400&fit=crop' },
-        { id: 'tempered-glass', name: 'Tempered Glass Screen Protector', price: 579, category: 'protectors', image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&h=400&fit=crop' },
-        { id: 'headphones-sony', name: 'Sony WH-1000XM5', price: 16749, category: 'headphones', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop' },
-        { id: 'powerbank-20000', name: '20,000mAh Power Bank', price: 2799, category: 'powerbanks', image: 'https://images.unsplash.com/photo-1706275399494-fb26bbc5da63?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cG93ZXJiYW5rLTIwMDAwfGVufDB8fDB8fHww' },
-        { id: 'leather-case', name: 'Leather Wallet Case', price: 1399, category: 'cases', image: 'https://images.unsplash.com/photo-1657731739188-e31e3b8b86d6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fExlYXRoZXIlMjBXYWxsZXQlMjBDYXNlfGVufDB8fDB8fHww' },
+    {
+      id: "charger-20w",
+      name: "20W Fast Charger",
+      price: 1399,
+      category: "chargers",
+      image:
+        "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=400&fit=crop",
+    },
+    {
+      id: "silicone-case",
+      name: "Silicone Case",
+      price: 899,
+      category: "cases",
+      image:
+        "https://images.unsplash.com/photo-1542219550-76864b1bc385?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8U2lsaWNvbmUlMjBDYXNlfGVufDB8fDB8fHww",
+    },
+    {
+      id: "airpods-pro-2",
+      name: "AirPods Pro 2",
+      price: 11999,
+      category: "earbuds",
+      images: [
+        "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QWlyUG9kcyUyMFBybyUyMDJ8ZW58MHx8MHx8fDA%3D",
+        "https://images.unsplash.com/photo-1606741965326-cb990ae01bb2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8QWlyUG9kcyUyMFBybyUyMDJ8ZW58MHx8MHx8fDA%3D",
+        "https://plus.unsplash.com/premium_photo-1664301727640-cc968f900b45?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8QWlyUG9kcyUyMFBybyUyMDJ8ZW58MHx8MHx8fDA%3D",
+        "https://images.unsplash.com/photo-1629367494173-c78a56567877?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fEFpclBvZHMlMjBQcm8lMjAyfGVufDB8fDB8fHww",
+      ],
+      image:
+        "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QWlyUG9kcyUyMFBybyUyMDJ8ZW58MHx8MHx8fDA%3D",
+    },
+    {
+      id: "galaxy-buds2-pro",
+      name: "Galaxy Buds2 Pro",
+      price: 8999,
+      category: "earbuds",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFq2b-Waj15exyeb4wwqxfIShtv85C4r8errO1_jeKwA&s=10",
+    },
+    {
+      id: "powerbank-10000",
+      name: "10,000mAh Power Bank",
+      price: 1899,
+      category: "powerbanks",
+      images: [
+        "https://images.unsplash.com/photo-1706275399524-813e89914e43?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBvd2VyYmFuay0xMDAwMHxlbnwwfHwwfHx8MA%3D%3D",
+        "https://images.unsplash.com/photo-1599708413980-a4310602be62?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDM5fHx8ZW58MHx8fHx8",
+      ],
+      image:
+        "https://images.unsplash.com/photo-1706275399524-813e89914e43?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBvd2VyYmFuay0xMDAwMHxlbnwwfHwwfHx8MA%3D%3D",
+    },
+    {
+      id: "usb-c-cable",
+      name: "USB-C Cable",
+      price: 749,
+      category: "cables",
+      image:
+        "https://plus.unsplash.com/premium_photo-1759282946954-d1fdec6198eb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8VVNCLUMlMjBDYWJsZXxlbnwwfHwwfHx8MA%3D%3D",
+    },
+    {
+      id: "car-charger",
+      name: "Car Charger",
+      price: 1199,
+      category: "chargers",
+      image:
+        "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=400&fit=crop",
+    },
+    {
+      id: "tempered-glass",
+      name: "Tempered Glass Screen Protector",
+      price: 579,
+      category: "protectors",
+      image:
+        "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&h=400&fit=crop",
+    },
+    {
+      id: "headphones-sony",
+      name: "Sony WH-1000XM5",
+      price: 16749,
+      category: "headphones",
+      image:
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
+    },
+    {
+      id: "powerbank-20000",
+      name: "20,000mAh Power Bank",
+      price: 2799,
+      category: "powerbanks",
+      image:
+        "https://images.unsplash.com/photo-1706275399494-fb26bbc5da63?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cG93ZXJiYW5rLTIwMDAwfGVufDB8fDB8fHww",
+    },
+    {
+      id: "leather-case",
+      name: "Leather Wallet Case",
+      price: 1399,
+      category: "cases",
+      image:
+        "https://images.unsplash.com/photo-1657731739188-e31e3b8b86d6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fExlYXRoZXIlMjBXYWxsZXQlMjBDYXNlfGVufDB8fDB8fHww",
+    },
   ];
 
   let products;
