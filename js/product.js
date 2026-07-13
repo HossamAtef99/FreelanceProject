@@ -396,6 +396,17 @@
       badge: "New",
       popular: 58,
     },
+    { id: 'charger-20w', name: '20W Fast Charger', price: 1399, category: 'chargers', image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=400&fit=crop' },
+        { id: 'silicone-case', name: 'Silicone Case', price: 899, category: 'cases', image: 'https://images.unsplash.com/photo-1542219550-76864b1bc385?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8U2lsaWNvbmUlMjBDYXNlfGVufDB8fDB8fHww' },
+        { id: 'airpods-pro-2', name: 'AirPods Pro 2', price: 11999, category: 'earbuds', image: 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QWlyUG9kcyUyMFBybyUyMDJ8ZW58MHx8MHx8fDA%3D' },
+        { id: 'galaxy-buds2-pro', name: 'Galaxy Buds2 Pro', price: 8999, category: 'earbuds', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFq2b-Waj15exyeb4wwqxfIShtv85C4r8errO1_jeKwA&s=10' },
+        { id: 'powerbank-10000', name: '10,000mAh Power Bank', price: 1899, category: 'powerbanks', image: 'https://images.unsplash.com/photo-1706275399524-813e89914e43?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBvd2VyYmFuay0xMDAwMHxlbnwwfHwwfHx8MA%3D%3D' },
+        { id: 'usb-c-cable', name: 'USB-C Cable', price: 749, category: 'cables', image: 'https://plus.unsplash.com/premium_photo-1759282946954-d1fdec6198eb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8VVNCLUMlMjBDYWJsZXxlbnwwfHwwfHx8MA%3D%3D' },
+        { id: 'car-charger', name: 'Car Charger', price: 1199, category: 'chargers', image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=400&fit=crop' },
+        { id: 'tempered-glass', name: 'Tempered Glass Screen Protector', price: 579, category: 'protectors', image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&h=400&fit=crop' },
+        { id: 'headphones-sony', name: 'Sony WH-1000XM5', price: 16749, category: 'headphones', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop' },
+        { id: 'powerbank-20000', name: '20,000mAh Power Bank', price: 2799, category: 'powerbanks', image: 'https://images.unsplash.com/photo-1706275399494-fb26bbc5da63?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cG93ZXJiYW5rLTIwMDAwfGVufDB8fDB8fHww' },
+        { id: 'leather-case', name: 'Leather Wallet Case', price: 1399, category: 'cases', image: 'https://images.unsplash.com/photo-1657731739188-e31e3b8b86d6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fExlYXRoZXIlMjBXYWxsZXQlMjBDYXNlfGVufDB8fDB8fHww' },
   ];
 
   let products;
@@ -407,7 +418,8 @@
       if (stored) {
         const parsed = JSON.parse(stored);
         if (Array.isArray(parsed) && parsed.length) {
-          products = parsed;
+          const accessories = hardcodedProducts.filter((p) => p.category !== "phones");
+          products = [...parsed, ...accessories];
           return products;
         }
       }
@@ -418,6 +430,7 @@
 
   const COLOR_HEX = {
     Titanium: "#8a8d91",
+    "Titanium Gray": "#8e8e90",
     "Deep Purple": "#4a1a6b",
     Gold: "#d4af37",
     Black: "#1a1a1a",
@@ -515,17 +528,20 @@
     const images = getColorImages(p, selectedColor);
     renderGallery(images, p.name);
 
-    document.getElementById("productBrand").textContent = p.brand;
+    const isPhone = !p.category || p.category === "phones";
+
+    document.getElementById("productBrand").textContent = p.brand || "Premium Accessory";
     document.getElementById("productName").textContent = p.name;
     document.getElementById("breadcrumbProduct").textContent = p.name;
     document.getElementById("pageTitle").textContent = p.name;
-    document.getElementById("pageSubtitle").textContent =
-      `${p.brand} — ${p.storage} ${p.ram}`;
+    document.getElementById("pageSubtitle").textContent = isPhone
+      ? `${p.brand} — ${p.storage} ${p.ram}`
+      : `${p.brand || "Premium Accessory"}`;
 
-    const starsHtml = getStars(p.rating);
+    const starsHtml = getStars(p.rating || 5);
     document.getElementById("productRating").innerHTML = `
       <div class="product-info-stars">${starsHtml}</div>
-      <span class="product-info-review-count">(${p.reviews} reviews)</span>
+      <span class="product-info-review-count">(${p.reviews || 12} reviews)</span>
     `;
 
     const oldPriceHtml = p.oldPrice
@@ -540,7 +556,9 @@
       ${discountHtml}
     `;
 
-    const descHtml = `<p>Experience the pinnacle of mobile technology with the ${p.name}. Featuring a stunning design, blazing-fast performance, and an advanced camera system, this smartphone sets a new standard for what a mobile device can do. Powered by the latest processor and featuring ${p.ram} of RAM, every task feels effortless.</p><p>The ${p.name} comes with ${p.storage} of internal storage, providing ample space for all your apps, photos, and videos. With an all-day battery, stunning display, and the latest software enhancements, this device is built to keep up with your lifestyle. Backed by a ${p.warranty} manufacturer warranty for complete peace of mind.</p>`;
+    const descHtml = isPhone
+      ? `<p>Experience the pinnacle of mobile technology with the ${p.name}. Featuring a stunning design, blazing-fast performance, and an advanced camera system, this smartphone sets a new standard for what a mobile device can do. Powered by the latest processor and featuring ${p.ram} of RAM, every task feels effortless.</p><p>The ${p.name} comes with ${p.storage} of internal storage, providing ample space for all your apps, photos, and videos. With an all-day battery, stunning display, and the latest software enhancements, this device is built to keep up with your lifestyle. Backed by a ${p.warranty} manufacturer warranty for complete peace of mind.</p>`
+      : `<p>Enhance your mobile experience with the ${p.name}. Designed to offer top-notch reliability and performance, this premium accessory integrates seamlessly into your daily life. Crafted from high-grade materials, it is built to last and ensures optimal performance.</p><p>Whether at home, in the office, or on the go, the ${p.name} provides the efficiency and dependability you expect. Backed by a ${p.warranty || "6 Months"} manufacturer warranty for complete peace of mind.</p>`;
     document.getElementById("productDescription").innerHTML = descHtml;
 
     const descTabHtml = descHtml;
@@ -574,23 +592,35 @@
       .join("");
     document.getElementById("tabReviews").innerHTML = reviewsHtml;
 
-    const colorOptions = p.colors || [p.color || "Black"];
-    document.getElementById("colorSelector").innerHTML = colorOptions
-      .map(
-        (c) => `
-      <button class="product-info-color ${c === selectedColor ? "active" : ""}" data-color="${c}" style="background: ${COLOR_HEX[c] || "#ccc"}" title="${c}"></button>
-    `,
-      )
-      .join("");
+    const colorOptions = p.colors || (p.color ? [p.color] : []);
+    const colorSelectorWrapper = document.getElementById("colorSelector").parentElement;
+    if (colorOptions.length === 0) {
+      colorSelectorWrapper.style.display = "none";
+    } else {
+      colorSelectorWrapper.style.display = "";
+      document.getElementById("colorSelector").innerHTML = colorOptions
+        .map(
+          (c) => `
+        <button class="product-info-color ${c === selectedColor ? "active" : ""}" data-color="${c}" style="background: ${COLOR_HEX[c] || "#ccc"}" title="${c}"></button>
+      `,
+        )
+        .join("");
+    }
 
-    const storageOptions = ["128GB", "256GB", "512GB", "1TB"];
-    document.getElementById("storageSelector").innerHTML = storageOptions
-      .map(
-        (s) => `
-      <button class="product-info-storage-btn ${s === selectedStorage ? "active" : ""}" data-storage="${s}">${s}</button>
-    `,
-      )
-      .join("");
+    const storageSelectorWrapper = document.getElementById("storageSelector").parentElement;
+    if (!isPhone || !p.storage) {
+      storageSelectorWrapper.style.display = "none";
+    } else {
+      storageSelectorWrapper.style.display = "";
+      const storageOptions = ["128GB", "256GB", "512GB", "1TB"];
+      document.getElementById("storageSelector").innerHTML = storageOptions
+        .map(
+          (s) => `
+        <button class="product-info-storage-btn ${s === selectedStorage ? "active" : ""}" data-storage="${s}">${s}</button>
+      `,
+        )
+        .join("");
+    }
 
     const metaHtml = `
       <div class="product-info-meta-item">
@@ -694,6 +724,16 @@
   }
 
   function getSpecs(p) {
+    const isPhone = !p.category || p.category === "phones";
+    if (!isPhone) {
+      return [
+        { label: "Category", value: p.category ? (p.category.charAt(0).toUpperCase() + p.category.slice(1)) : "Accessory" },
+        { label: "Condition", value: p.condition || "Brand New" },
+        { label: "Warranty", value: p.warranty || "6 Months" },
+        { label: "Compatibility", value: "Universal" }
+      ];
+    }
+
     const cameraMap = {
       Apple: "48MP + 12MP + 12MP",
       Samsung: "200MP + 50MP + 12MP + 10MP",
@@ -760,20 +800,25 @@
   }
 
   function getReviews(p) {
+    const isPhone = !p.category || p.category === "phones";
     return [
       {
         avatar: "AH",
         name: "Ahmed Hassan",
         date: "March 15, 2026",
         stars: 5,
-        text: `Absolutely love my ${p.name}! The camera quality is outstanding and the battery life easily lasts me a full day of heavy use. The delivery was incredibly fast and the phone was well-packaged. Highly recommend Omar Phone for anyone looking for premium devices at the best prices.`,
+        text: isPhone
+          ? `Absolutely love my ${p.name}! The camera quality is outstanding and the battery life easily lasts me a full day of heavy use. The delivery was incredibly fast and the phone was well-packaged. Highly recommend Omar Phone for anyone looking for premium devices at the best prices.`
+          : `Absolutely love this ${p.name}! It works perfectly and is made of high quality materials. Highly recommend Omar Phone for their excellent service.`,
       },
       {
         avatar: "SN",
         name: "Sara Nasser",
         date: "February 28, 2026",
         stars: 5,
-        text: `This is my third phone from Omar Phone and they never disappoint. The ${p.name} feels premium in hand, the display is gorgeous, and performance is buttery smooth. The 12-month warranty gives great peace of mind. Will definitely be coming back for more.`,
+        text: isPhone
+          ? `This is my third phone from Omar Phone and they never disappoint. The ${p.name} feels premium in hand, the display is gorgeous, and performance is buttery smooth. The 12-month warranty gives great peace of mind. Will definitely be coming back for more.`
+          : `Great value for money. The ${p.name} feels very durable and premium. Excellent buying experience.`,
       },
     ];
   }

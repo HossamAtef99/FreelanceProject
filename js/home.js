@@ -76,38 +76,262 @@
     el.innerHTML = products.map(buildProductCard).join('');
   }
 
-  async function init() {
+ async function init() {
+   const hardcodedProducts = [
+     {
+       id: "iphone15pm",
+       name: "iPhone 15 Pro Max",
+       brand: "Apple",
+       images: [
+         "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=600&h=600&fit=crop&crop=center",
+       ],
+       image:
+         "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&h=600&fit=crop&crop=center",
+       price: 57499,
+       oldPrice: 62499,
+       storage: "256GB",
+       ram: "8GB",
+       colors: ["Titanium"],
+       color: "Titanium",
+       condition: "new",
+       battery: 100,
+       warranty: "12 Months",
+       rating: 5,
+       reviews: 128,
+       stock: true,
+       category: "phones",
+       badge: "New",
+       popular: 95,
+     },
+     {
+       id: "s24ultra",
+       name: "Galaxy S24 Ultra",
+       brand: "Samsung",
+       images: [
+         "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=600&h=600&fit=crop&crop=center",
+       ],
+       image:
+         "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop&crop=center",
+       price: 52499,
+       oldPrice: 62499,
+       storage: "512GB",
+       ram: "12GB",
+       colors: ["Titanium Gray"],
+       color: "Titanium Gray",
+       condition: "new",
+       battery: 100,
+       warranty: "12 Months",
+       rating: 5,
+       reviews: 94,
+       stock: true,
+       category: "phones",
+       badge: "Sale",
+       popular: 90,
+     },
+     {
+       id: "pixel8pro",
+       name: "Pixel 8 Pro",
+       brand: "Google",
+       images: [
+         "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=600&h=600&fit=crop&crop=center",
+       ],
+       image:
+         "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&h=600&fit=crop&crop=center",
+       price: 42999,
+       oldPrice: 47999,
+       storage: "128GB",
+       ram: "12GB",
+       colors: ["Obsidian"],
+       color: "Obsidian",
+       condition: "new",
+       battery: 100,
+       warranty: "12 Months",
+       rating: 5,
+       reviews: 76,
+       stock: true,
+       category: "phones",
+       badge: "",
+       popular: 88,
+     },
+     {
+       id: "oneplus12",
+       name: "OnePlus 12",
+       brand: "OnePlus",
+       images: [
+         "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=600&h=600&fit=crop&crop=center",
+       ],
+       image:
+         "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=600&h=600&fit=crop&crop=center",
+       price: 33499,
+       oldPrice: 37999,
+       storage: "256GB",
+       ram: "16GB",
+       colors: ["Flowy Emerald"],
+       color: "Flowy Emerald",
+       condition: "new",
+       battery: 100,
+       warranty: "12 Months",
+       rating: 5,
+       reviews: 52,
+       stock: true,
+       category: "phones",
+       badge: "Best Seller",
+       popular: 85,
+     },
+     {
+       id: "iphone15",
+       name: "iPhone 15",
+       brand: "Apple",
+       images: [
+         "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=600&h=600&fit=crop&crop=center",
+       ],
+       image:
+         "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center",
+       price: 37999,
+       oldPrice: 0,
+       storage: "128GB",
+       ram: "6GB",
+       colors: ["Pink"],
+       color: "Pink",
+       condition: "new",
+       battery: 100,
+       warranty: "12 Months",
+       rating: 4,
+       reviews: 210,
+       stock: true,
+       category: "phones",
+       badge: "New",
+       popular: 92,
+     },
+     {
+       id: "zfold5",
+       name: "Galaxy Z Fold 5",
+       brand: "Samsung",
+       images: [
+         "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=600&h=600&fit=crop&crop=center",
+       ],
+       image:
+         "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=600&h=600&fit=crop&crop=center",
+       price: 86499,
+       oldPrice: 0,
+       storage: "256GB",
+       ram: "12GB",
+       colors: ["Icy Blue"],
+       color: "Icy Blue",
+       condition: "new",
+       battery: 100,
+       warranty: "12 Months",
+       rating: 5,
+       reviews: 43,
+       stock: true,
+       category: "phones",
+       badge: "Premium",
+       popular: 78,
+     },
+     {
+       id: "mi14pro",
+       name: "Xiaomi 14 Pro",
+       brand: "Xiaomi",
+       images: [
+         "https://images.unsplash.com/photo-1774437342043-12ffa8880899?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop&crop=center",
+         "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=600&h=600&fit=crop&crop=center",
+       ],
+       image:
+         "https://images.unsplash.com/photo-1774437342043-12ffa8880899?w=600&h=600&fit=crop&crop=center",
+       price: 35999,
+       oldPrice: 0,
+       storage: "256GB",
+       ram: "12GB",
+       colors: ["Black"],
+       color: "Black",
+       condition: "new",
+       battery: 100,
+       warranty: "12 Months",
+       rating: 4,
+       reviews: 67,
+       stock: true,
+       category: "phones",
+       badge: "",
+       popular: 80,
+     },
+     
+   ];
+
+    function getFallbackProducts() {
+      try {
+        const stored = localStorage.getItem("op_admin_products");
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed) && parsed.length) {
+            return parsed;
+          }
+        }
+      } catch {}
+      return hardcodedProducts;
+    }
+
     try {
-      const res = await fetch(API_BASE + '/api/products/all');
+      const res = await fetch(API_BASE + "/api/products/all");
       if (res.ok) {
         allProducts = await res.json();
+      } else {
+        allProducts = getFallbackProducts();
       }
-    } catch {}
-    if (!allProducts.length) return;
-
-    const phones = allProducts.filter(p => p.category === 'phones' || !p.category);
-
-    const featured = phones.filter(p => p.badge === 'New' || p.badge === 'Premium' || p.badge === 'Best Seller' || (p.popular || 0) >= 80).slice(0, 4);
-    if (featured.length < 4) {
-      const extra = phones.filter(p => !featured.find(f => f.id === p.id)).slice(0, 4 - featured.length);
-      featured.push(...extra);
+    } catch (error) {
+      console.warn("API unreachable, using local data.");
+      allProducts = getFallbackProducts();
     }
-    renderSection('featuredGrid', featured);
 
-    const latest = phones.filter(p => p.badge === 'New').slice(0, 4);
-    if (latest.length < 4) {
-      const extra = phones.filter(p => !latest.find(l => l.id === p.id) && !featured.find(f => f.id === p.id)).slice(0, 4 - latest.length);
-      latest.push(...extra);
-    }
-    renderSection('latestGrid', latest);
+   if (!allProducts || allProducts.length === 0) return;
 
-    const deals = phones.filter(p => p.oldPrice && p.oldPrice > p.price).sort((a, b) => {
-      const aDisc = (a.price / a.oldPrice);
-      const bDisc = (b.price / b.oldPrice);
-      return aDisc - bDisc;
-    }).slice(0, 4);
-    renderSection('dealsGrid', deals);
-  }
+   const phones = allProducts.filter(
+     (p) => p.category === "phones" || !p.category,
+   );
+
+   const featured = phones
+     .filter(
+       (p) =>
+         p.badge === "New" ||
+         p.badge === "Premium" ||
+         p.badge === "Best Seller" ||
+         (p.popular || 0) >= 80,
+     )
+     .slice(0, 4);
+   renderSection("featuredGrid", featured);
+
+   const latest = phones.filter((p) => p.badge === "New").slice(0, 4);
+   renderSection("latestGrid", latest);
+
+   const deals = phones
+     .filter((p) => p.oldPrice && p.oldPrice > p.price)
+     .sort((a, b) => {
+       const aDisc = a.price / a.oldPrice;
+       const bDisc = b.price / b.oldPrice;
+       return aDisc - bDisc;
+     })
+     .slice(0, 4);
+   renderSection("dealsGrid", deals);
+ }
 
   document.addEventListener('DOMContentLoaded', init);
 })();
