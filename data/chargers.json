@@ -1,4 +1,4 @@
 [
-  { "id": "charger-20w", "name": "20W Fast Charger", "price": 1399, "image": "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=400&fit=crop" },
-  { "id": "car-charger", "name": "Car Charger", "price": 1199, "image": "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=400&fit=crop" }
+  { "id": "charger-20w", "name": "20W Fast Charger", "price": 1399, "image": "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=400&fit=crop", "colors": ["White", "Black", "Gray"] },
+  { "id": "car-charger", "name": "Car Charger", "price": 1199, "image": "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=400&fit=crop", "colors": ["Black", "Gray"] }
 ]
