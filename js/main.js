@@ -6,28 +6,28 @@
 (function() {
   'use strict';
 
+  const API_BASE = 'http://localhost:3000';
+
   /* ----- DOM Ready ----- */
   document.addEventListener('DOMContentLoaded', () => {
-    initPreloader();
-    initMobileMenu();
-
-
-    initStickyHeader();
-    initScrollReveal();
-    initBackToTop();
-    initCounters();
-    initTestimonials();
-    initAccordions();
-    initQuantityControls();
-    initCartBadge();
-    initWishlistBadge();
-    initSearchToggle();
-    initHeroReveal();
-    initNewsletter();
-    initToast();
-    initProductCardLinks();
-    initAdminLink();
-    initAccountLink();
+    try { initPreloader(); } catch(_) {}
+    try { initMobileMenu(); } catch(_) {}
+    try { initStickyHeader(); } catch(_) {}
+    try { initScrollReveal(); } catch(_) {}
+    try { initBackToTop(); } catch(_) {}
+    try { initCounters(); } catch(_) {}
+    try { initTestimonials(); } catch(_) {}
+    try { initAccordions(); } catch(_) {}
+    try { initCartBadge(); } catch(_) {}
+    try { initWishlistBadge(); } catch(_) {}
+    try { initSearchToggle(); } catch(_) {}
+    try { initHeroReveal(); } catch(_) {}
+    try { initNewsletter(); } catch(_) {}
+    try { initToast(); } catch(_) {}
+    try { initProductCardLinks(); } catch(_) {}
+    try { initAdminLink(); } catch(_) {}
+    try { initAccountLink(); } catch(_) {}
+    try { initImageFallbacks(); } catch(_) {}
   });
 
   /* ----- Preloader ----- */
@@ -236,45 +236,6 @@
     });
   }
 
-  /* ----- Quantity Controls ----- */
-  function initQuantityControls() {
-    document.querySelectorAll('.product-info-qty, .cart-item-qty').forEach(container => {
-      const input = container.querySelector('input');
-      const minus = container.querySelector('.qty-minus');
-      const plus = container.querySelector('.qty-plus');
-      if (!input) return;
-
-      const min = parseInt(input.min, 10) || 1;
-      const max = parseInt(input.max, 10) || 99;
-
-      if (minus) {
-        minus.addEventListener('click', () => {
-          let val = parseInt(input.value, 10) || min;
-          if (val > min) {
-            input.value = val - 1;
-            triggerEvent(input, 'change');
-          }
-        });
-      }
-
-      if (plus) {
-        plus.addEventListener('click', () => {
-          let val = parseInt(input.value, 10) || min;
-          if (val < max) {
-            input.value = val + 1;
-            triggerEvent(input, 'change');
-          }
-        });
-      }
-
-      input.addEventListener('change', () => {
-        let val = parseInt(input.value, 10);
-        if (isNaN(val) || val < min) input.value = min;
-        if (val > max) input.value = max;
-      });
-    });
-  }
-
   /* ----- Cart Badge ----- */
   function initCartBadge() {
     updateBadge('cartBadge', getCart());
@@ -292,11 +253,15 @@
     badge.style.display = count > 0 ? 'flex' : 'none';
   }
 
+  document.addEventListener('wishlistUpdated', () => {
+    updateBadge('wishlistBadge', getWishlist());
+  });
+
   /* ----- Cart Management ----- */
   function getCart() {
     try {
       return JSON.parse(localStorage.getItem('omar_cart')) || [];
-    } catch { return []; }
+    } catch { console.warn('Cart parse error'); return []; }
   }
 
   function setCart(items) {
@@ -475,6 +440,21 @@
   }
 
   /* ----- Helpers ----- */
+  const IMG_FALLBACK = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" fill="none"><rect width="200" height="200" fill="#1E293B"/><rect x="70" y="40" width="60" height="120" rx="8" stroke="#475569" stroke-width="3" fill="none"/><circle cx="100" cy="145" r="4" fill="#475569"/></svg>');
+
+  function initImageFallbacks() {
+    document.querySelectorAll('img').forEach(img => {
+      if (img.dataset.fallback) return;
+      img.dataset.fallback = '1';
+      img.addEventListener('error', function handler() {
+        if (this.src !== IMG_FALLBACK) {
+          this.src = IMG_FALLBACK;
+          this.removeEventListener('error', handler);
+        }
+      });
+    });
+  }
+
   function getIcon(name) {
     const icons = {
       'dark_mode': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
@@ -515,21 +495,28 @@
   }
 
   function initProductCardLinks() {
-    document.querySelectorAll('.product-card').forEach(card => {
-      card.addEventListener('click', e => {
-        if (e.target.closest('button, a')) return;
+    document.addEventListener('click', e => {
+      const card = e.target.closest('.product-card');
+      if (!card) return;
+      if (e.target.closest('button, a')) return;
+      const link = card.querySelector('a[href*="product-detail"]');
+      if (link) {
+        window.location.href = link.href;
+      } else {
         const btn = card.querySelector('.wishlist-btn');
-        if (btn) {
-          const id = btn.dataset.id;
-          if (id) window.location.href = 'product-detail.html?id=' + id;
+        if (btn && btn.dataset.id) {
+          window.location.href = 'product-detail.html?id=' + btn.dataset.id;
         }
-      });
+      }
     });
   }
 
   /* ----- Expose to global scope ----- */
   function initAdminLink() {
-    if (localStorage.getItem('op_admin_logged') === '1') {
+    const isAdmin = localStorage.getItem('op_admin_logged') === '1' 
+      || window.location.pathname.includes('admin.html')
+      || document.getElementById('adminDashboardSection') !== null;
+    if (isAdmin) {
       const nav = document.getElementById('adminNavLink');
       if (nav) nav.style.display = '';
       const mobile = document.getElementById('adminMobileLink');
@@ -564,6 +551,90 @@
     }
   }
 
+  function escapeHtml(str) {
+    if (typeof str !== 'string') return str;
+    const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+    return str.replace(/[&<>"']/g, c => map[c]);
+  }
+
+  async function getAuthToken() {
+    try {
+      if (typeof supabase !== 'undefined' && supabase) {
+        const { data: { session } } = await supabase.auth.getSession();
+        return session?.access_token || null;
+      }
+    } catch (e) { console.warn('Auth token fetch failed:', e); }
+    return null;
+  }
+
+  /* ----- Shared CRUD (Supabase-backed) ----- */
+
+  async function apiRequest(url, method, body_) {
+    const headers = { 'Content-Type': 'application/json' };
+    const token = await getAuthToken();
+    if (token) headers['Authorization'] = 'Bearer ' + token;
+    const res = await fetch(url, { method, headers, body: body_ ? JSON.stringify(body_) : undefined });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({ error: res.statusText }));
+      throw new Error(err.error || 'Request failed');
+    }
+    return res.json();
+  }
+
+  async function getProducts() {
+    try {
+      const res = await fetch(API_BASE + '/api/products/all?t=' + Date.now());
+      if (res.ok) {
+        const data = await res.json();
+        if (Array.isArray(data) && data.length) {
+          try { localStorage.setItem('op_admin_products', JSON.stringify(data)); } catch (_) {}
+          return data;
+        }
+      }
+    } catch (err) { console.warn('API fetch failed:', err); }
+    try {
+      const stored = localStorage.getItem('op_admin_products');
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed) && parsed.length) return parsed;
+      }
+    } catch (_) {}
+    return [];
+  }
+
+  async function createProduct(product) {
+    const result = await apiRequest(API_BASE + '/api/products', 'POST', product);
+    try {
+      const cached = JSON.parse(localStorage.getItem('op_admin_products') || '[]');
+      const idx = cached.findIndex(p => p.id === result.product?.id);
+      if (idx >= 0) cached[idx] = result.product; else cached.push(result.product);
+      localStorage.setItem('op_admin_products', JSON.stringify(cached));
+    } catch (_) {}
+    return result;
+  }
+
+  async function updateProduct(id, updates) {
+    const result = await apiRequest(API_BASE + '/api/products/' + id, 'PUT', updates);
+    try {
+      const cached = JSON.parse(localStorage.getItem('op_admin_products') || '[]');
+      const idx = cached.findIndex(p => p.id === id);
+      if (idx >= 0) cached[idx] = result.product;
+      localStorage.setItem('op_admin_products', JSON.stringify(cached));
+    } catch (_) {}
+    return result;
+  }
+
+  async function deleteProduct(id) {
+    const result = await apiRequest(API_BASE + '/api/products/' + id, 'DELETE');
+    try {
+      const cached = JSON.parse(localStorage.getItem('op_admin_products') || '[]');
+      localStorage.setItem('op_admin_products', JSON.stringify(cached.filter(p => p.id !== id)));
+    } catch (_) {}
+    return result;
+  }
+
+  /* ----- Expose to global scope ----- */
+
   window.OmarPhone = {
     getCart,
     setCart,
@@ -580,6 +651,15 @@
     updateBadge,
     isLoggedIn,
     requireAuth,
+    initImageFallbacks,
+    initAdminLink,
+    escapeHtml,
+    getAuthToken,
+    apiRequest,
+    getProducts,
+    createProduct,
+    updateProduct,
+    deleteProduct,
   };
 
 })();

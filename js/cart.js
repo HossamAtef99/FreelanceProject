@@ -1,11 +1,18 @@
 (function() {
   'use strict';
 
+  const API_BASE = 'http://localhost:3000';
+
   document.addEventListener('DOMContentLoaded', () => {
     renderCart();
     document.getElementById('applyCoupon')?.addEventListener('click', applyCoupon);
     document.getElementById('shippingSelect')?.addEventListener('change', updateSummary);
-    document.getElementById('checkoutBtn')?.addEventListener('click', checkout);
+    document.getElementById('checkoutBtn')?.addEventListener('click', openCheckoutModal);
+    document.getElementById('checkoutModalClose')?.addEventListener('click', closeCheckoutModal);
+    document.getElementById('checkoutForm')?.addEventListener('submit', submitOrder);
+    document.getElementById('checkoutModal')?.addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeCheckoutModal();
+    });
     document.addEventListener('cartUpdated', renderCart);
   });
 
@@ -55,7 +62,7 @@
           <div class="cart-item-details">
             <div class="cart-item-title">${item.name || 'Product'}</div>
             <div class="cart-item-specs">${specs.length ? specs.join(' / ') : 'Standard'}</div>
-            <div class="cart-item-price">EGP ${(item.price || 0).toFixed(2)}</div>
+            <div class="cart-item-price">EGP ${(item.price || 0).toLocaleString()}</div>
             <div class="cart-item-actions">
               <div class="cart-item-qty">
                 <button class="qty-minus" data-index="${index}">
@@ -72,7 +79,7 @@
               </button>
             </div>
           </div>
-          <div class="cart-item-subtotal">EGP ${((item.price || 0) * (item.quantity || 1)).toFixed(2)}</div>
+          <div class="cart-item-subtotal">EGP ${((item.price || 0) * (item.quantity || 1)).toLocaleString()}</div>
         </div>
       `;
     });
@@ -147,38 +154,98 @@
     const tax = afterDiscount * 0.15;
     const total = afterDiscount + shipping + tax;
 
-    document.getElementById('summarySubtotal').textContent = 'EGP ' + subtotal.toFixed(2);
+    document.getElementById('summarySubtotal').textContent = 'EGP ' + subtotal.toLocaleString();
     if (appliedCoupon) {
-      document.getElementById('summaryDiscount').textContent = '-EGP ' + discount.toFixed(2);
+      document.getElementById('summaryDiscount').textContent = '-EGP ' + discount.toLocaleString();
     }
-    document.getElementById('summaryTax').textContent = 'EGP ' + tax.toFixed(2);
-    document.getElementById('summaryTotal').textContent = 'EGP ' + total.toFixed(2);
+    document.getElementById('summaryTax').textContent = 'EGP ' + tax.toLocaleString();
+    document.getElementById('summaryTotal').textContent = 'EGP ' + total.toLocaleString();
   }
 
-  function checkout() {
+  function openCheckoutModal() {
     if (window.OmarPhone && !window.OmarPhone.requireAuth()) return;
     const cart = getCart();
     if (!cart.length) {
       if (window.OmarPhone) window.OmarPhone.showToast('Your cart is empty', 'error');
       return;
     }
+    document.getElementById('checkoutModal').style.display = 'flex';
+  }
+
+  function closeCheckoutModal() {
+    document.getElementById('checkoutModal').style.display = 'none';
+  }
+
+  async function submitOrder(e) {
+    e.preventDefault();
+    const cart = getCart();
+    if (!cart.length) {
+      if (window.OmarPhone) window.OmarPhone.showToast('Your cart is empty', 'error');
+      return;
+    }
+
+    const name = document.getElementById('checkoutName').value.trim();
+    const phone = document.getElementById('checkoutPhone').value.trim();
+    const address = document.getElementById('checkoutAddress').value.trim();
+
+    if (!name || !phone || !address) {
+      if (window.OmarPhone) window.OmarPhone.showToast('Please fill in all fields', 'error');
+      return;
+    }
+
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Placing Order...';
+
+    const totalText = document.getElementById('summaryTotal')?.textContent || '';
+    const total = parseFloat(totalText.replace(/[^0-9.]/g, '')) || 0;
+
     const order = {
       id: Date.now().toString(36) + Math.random().toString(36).substring(2, 6),
+      customer: { name, phone, address },
       items: cart,
-      total: parseFloat(document.getElementById('summaryTotal')?.textContent?.replace('EGP ', '') || 0),
+      total,
       date: new Date().toISOString(),
       status: 'pending',
       payment: 'Cash on Delivery',
     };
+
     try {
-      const orders = JSON.parse(localStorage.getItem('op_orders') || '[]');
-      orders.push(order);
-      localStorage.setItem('op_orders', JSON.stringify(orders));
-    } catch {}
+      const res = await fetch(API_BASE + '/api/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(order),
+      });
+      if (!res.ok) throw new Error('Server error: ' + res.status);
+    } catch (err) {
+      console.warn('Could not reach server, saving order locally.', err);
+      try {
+        const orders = JSON.parse(localStorage.getItem('op_orders') || '[]');
+        orders.push(order);
+        localStorage.setItem('op_orders', JSON.stringify(orders));
+      } catch (e) {
+        console.error('Failed to save order locally:', e);
+      }
+      btn.disabled = false;
+      btn.textContent = 'Confirm Order';
+      if (window.OmarPhone) {
+        window.OmarPhone.showToast('Order saved offline. We will process it when connected.', 'warning');
+      }
+      closeCheckoutModal();
+      document.getElementById('checkoutForm').reset();
+      return;
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'Confirm Order';
+    closeCheckoutModal();
+
     if (window.OmarPhone) {
-      window.OmarPhone.showToast('Order placed! Pay with cash upon delivery.', 'success');
+      window.OmarPhone.showToast('Order placed successfully! Pay upon delivery.', 'success');
       window.OmarPhone.clearCart();
     }
+
+    document.getElementById('checkoutForm').reset();
   }
 
 })();

@@ -1,4 +1,4 @@
--- Create profiles table for registered users
+-- Profiles table (auth)
 CREATE TABLE IF NOT EXISTS profiles (
   id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
   name TEXT NOT NULL,
@@ -25,20 +25,24 @@ CREATE POLICY "Users can update own profile"
   USING (auth.uid() = id)
   WITH CHECK (auth.uid() = id);
 
+-- Drop existing tables to recreate with correct columns
+DROP TABLE IF EXISTS products CASCADE;
+DROP TABLE IF EXISTS orders CASCADE;
+
 -- Products table
-CREATE TABLE IF NOT EXISTS products (
+CREATE TABLE products (
   id TEXT PRIMARY KEY,
   name TEXT NOT NULL,
   brand TEXT NOT NULL,
   price NUMERIC NOT NULL,
-  "oldPrice" NUMERIC DEFAULT 0,
+  oldPrice NUMERIC DEFAULT 0,
   storage TEXT,
   ram TEXT,
   color TEXT DEFAULT '',
   colors JSONB DEFAULT '[]'::jsonb,
   image TEXT DEFAULT '',
   images JSONB DEFAULT '[]'::jsonb,
-  "colorImages" JSONB DEFAULT '{}'::jsonb,
+  colorImages JSONB DEFAULT '{}'::jsonb,
   rating NUMERIC DEFAULT 5,
   reviews INTEGER DEFAULT 0,
   stock BOOLEAN DEFAULT true,
@@ -61,7 +65,7 @@ CREATE POLICY "Allow all on products"
   WITH CHECK (true);
 
 -- Orders table
-CREATE TABLE IF NOT EXISTS orders (
+CREATE TABLE orders (
   id TEXT PRIMARY KEY,
   customer JSONB NOT NULL,
   items JSONB NOT NULL,

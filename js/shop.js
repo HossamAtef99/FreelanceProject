@@ -7,323 +7,14 @@
 
   const API_BASE = 'http://localhost:3000';
 
-  const fallbackProducts = [
-    {
-      id: "iphone15pm",
-      name: "iPhone 15 Pro Max",
-      brand: "Apple",
-      image:
-        "https://images.unsplash.com/photo-1710023038502-ba80a70a9f53?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aVBob25lJTIwMTUlMjBQcm8lMjBNYXh8ZW58MHx8MHx8fDA%3D",
-      price: 57499,
-      oldPrice: 62499,
-      storage: "256GB",
-      ram: "8GB",
-      colors: ["Titanium"],
-      color: "Titanium",
-      condition: "new",
-      battery: 100,
-      warranty: "12 Months",
-      rating: 5,
-      reviews: 128,
-      stock: true,
-      category: "phones",
-      badge: "New",
-      popular: 95,
-    },
-    {
-      id: "s24ultra",
-      name: "Galaxy S24 Ultra",
-      brand: "Samsung",
-      image:
-        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center",
-      price: 52499,
-      oldPrice: 62499,
-      storage: "512GB",
-      ram: "12GB",
-      colors: ["Titanium Gray"],
-      color: "Titanium Gray",
-      condition: "new",
-      battery: 100,
-      warranty: "12 Months",
-      rating: 5,
-      reviews: 94,
-      stock: true,
-      category: "phones",
-      badge: "Sale",
-      popular: 90,
-    },
-    {
-      id: "pixel8pro",
-      name: "Vivo X200 Ultra",
-      brand: "Vivo",
-      image:
-        "https://images.unsplash.com/photo-1746366782635-aabca81d2719?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      price: 42999,
-      oldPrice: 47999,
-      storage: "128GB",
-      ram: "12GB",
-      colors: ["Obsidian"],
-      color: "Obsidian",
-      condition: "new",
-      battery: 100,
-      warranty: "12 Months",
-      rating: 5,
-      reviews: 76,
-      stock: true,
-      category: "phones",
-      badge: "",
-      popular: 88,
-    },
-    {
-      id: "oneplus12",
-      name: "OnePlus 12",
-      brand: "OnePlus",
-      image:
-        "https://images.unsplash.com/photo-1773293915424-c0809e512236?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D",
-      price: 33499,
-      oldPrice: 37999,
-      storage: "256GB",
-      ram: "16GB",
-      colors: ["Flowy Emerald"],
-      color: "Flowy Emerald",
-      condition: "new",
-      battery: 100,
-      warranty: "12 Months",
-      rating: 5,
-      reviews: 52,
-      stock: true,
-      category: "phones",
-      badge: "Best Seller",
-      popular: 85,
-    },
-    {
-      id: "iphone15",
-      name: "iPhone 15",
-      brand: "Apple",
-      image:
-        "https://images.unsplash.com/photo-1726574686436-5ef90358e032?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI2fHx8ZW58MHx8fHx8",
-      price: 37999,
-      oldPrice: 0,
-      storage: "128GB",
-      ram: "6GB",
-      colors: ["Pink"],
-      color: "Pink",
-      condition: "new",
-      battery: 100,
-      warranty: "12 Months",
-      rating: 4,
-      reviews: 210,
-      stock: true,
-      category: "phones",
-      badge: "New",
-      popular: 92,
-    },
-    {
-      id: "zfold5",
-      name: "Galaxy Z Fold 5",
-      brand: "Samsung",
-      image:
-        "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center",
-      price: 86499,
-      oldPrice: 0,
-      storage: "256GB",
-      ram: "12GB",
-      colors: ["Icy Blue"],
-      color: "Icy Blue",
-      condition: "new",
-      battery: 100,
-      warranty: "12 Months",
-      rating: 5,
-      reviews: 43,
-      stock: true,
-      category: "phones",
-      badge: "Premium",
-      popular: 78,
-    },
-    {
-      id: "mi14pro",
-      name: "Xiaomi 14 Pro",
-      brand: "Xiaomi",
-      image:
-        "https://images.unsplash.com/photo-1774437342043-12ffa8880899?w=400&h=400&fit=crop&crop=center",
-      price: 35999,
-      oldPrice: 0,
-      storage: "256GB",
-      ram: "12GB",
-      colors: ["Black"],
-      color: "Black",
-      condition: "new",
-      battery: 100,
-      warranty: "12 Months",
-      rating: 4,
-      reviews: 67,
-      stock: true,
-      category: "phones",
-      badge: "",
-      popular: 80,
-    },
-    {
-      id: "redmi_a15",
-      name: "Redmi A15",
-      brand: "Redmi",
-      image:
-        "https://i02.appmifile.com/440_operator_sg/22/07/2025/662e7f81b9317e2beae9e2d35e729a69.png?f=webp",
-      price: 28499,
-      oldPrice: 0,
-      storage: "256GB",
-      ram: "12GB",
-      colors: ["White"],
-      color: "White",
-      condition: "new",
-      battery: 100,
-      warranty: "12 Months",
-      rating: 4,
-      reviews: 38,
-      stock: true,
-      category: "phones",
-      badge: "New",
-      popular: 82,
-    },
-    {
-      id: "s23",
-      name: "Galaxy S23",
-      brand: "Samsung",
-      image:
-        "https://images.unsplash.com/photo-1689804847601-9648c50078bc?w=400&h=400&fit=crop&crop=center",
-      price: 28499,
-      oldPrice: 35999,
-      storage: "128GB",
-      ram: "8GB",
-      colors: ["Phantom Black"],
-      color: "Phantom Black",
-      condition: "new",
-      battery: 100,
-      warranty: "12 Months",
-      rating: 5,
-      reviews: 210,
-      stock: true,
-      category: "phones",
-      badge: "-20%",
-      popular: 75,
-    },
-    {
-      id: "ip14pm",
-      name: "iPhone 14 Pro Max",
-      brand: "Apple",
-      image:
-        "https://images.unsplash.com/photo-1727093493864-0bcbd16c7e6d?w=400&h=400&fit=crop&crop=center",
-      price: 42999,
-      oldPrice: 52499,
-      storage: "256GB",
-      ram: "6GB",
-      colors: ["Deep Purple"],
-      color: "Deep Purple",
-      condition: "new",
-      battery: 100,
-      warranty: "12 Months",
-      rating: 5,
-      reviews: 186,
-      stock: true,
-      category: "phones",
-      badge: "-18%",
-      popular: 70,
-    },
-    {
-      id: "mi13tp",
-      name: "Xiaomi 13T Pro",
-      brand: "Xiaomi",
-      image:
-        "https://images.unsplash.com/photo-1773414422122-96165e640180?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fFhpYW9taSUyMDEzVCUyMFByb3xlbnwwfHwwfHx8MA%3D%3D",
-      price: 23999,
-      oldPrice: 30999,
-      storage: "256GB",
-      ram: "12GB",
-      colors: ["Alpine Blue"],
-      color: "Alpine Blue",
-      condition: "new",
-      battery: 100,
-      warranty: "12 Months",
-      rating: 4,
-      reviews: 92,
-      stock: true,
-      category: "phones",
-      badge: "-25%",
-      popular: 65,
-    },
-    {
-      id: "op11",
-      name: "OnePlus 11",
-      brand: "OnePlus",
-      image:
-        "https://images.unsplash.com/photo-1527747471697-174c755627dd?w=400&h=400&fit=crop&crop=center",
-      price: 23999,
-      oldPrice: 30999,
-      storage: "256GB",
-      ram: "16GB",
-      colors: ["Eternal Green"],
-      color: "Eternal Green",
-      condition: "new",
-      battery: 100,
-      warranty: "12 Months",
-      rating: 4,
-      reviews: 78,
-      stock: false,
-      category: "phones",
-      badge: "-22%",
-      popular: 60,
-    },
-    {
-      id: "honor90",
-      name: "Honor 90",
-      brand: "Honor",
-      image:
-        "https://mobizil.com/wp-content/uploads/2023/07/honor90-inhand.jpg",
-      price: 21499,
-      oldPrice: 0,
-      storage: "256GB",
-      ram: "12GB",
-      colors: ["Emerald Green"],
-      color: "Emerald Green",
-      condition: "new",
-      battery: 100,
-      warranty: "12 Months",
-      rating: 4,
-      reviews: 34,
-      stock: true,
-      category: "phones",
-      badge: "New",
-      popular: 55,
-    },
-    {
-      id: "oppofindn3",
-      name: "OPPO Find N3 Flip",
-      brand: "Oppo",
-      image:
-        "https://images.unsplash.com/photo-1649859394614-dc4f7290b7f2?w=400&h=400&fit=crop&crop=center",
-      price: 47999,
-      oldPrice: 0,
-      storage: "256GB",
-      ram: "12GB",
-      colors: ["Gold"],
-      color: "Gold",
-      condition: "new",
-      battery: 100,
-      warranty: "12 Months",
-      rating: 4,
-      reviews: 22,
-      stock: true,
-      category: "phones",
-      badge: "New",
-      popular: 58,
-    },
-  ];
+  const fallbackProducts = [];
 
   let activeProducts = null;
   let filteredProducts = [];
 
   async function loadProducts() {
     try {
-      const res = await fetch(API_BASE + '/api/products/all');
+      const res = await fetch(API_BASE + '/api/products/all?t=' + Date.now());
       if (res.ok) {
         const data = await res.json();
         if (Array.isArray(data) && data.length) {
@@ -331,7 +22,9 @@
           return;
         }
       }
-    } catch {}
+    } catch (err) {
+      console.warn('API fetch failed:', err);
+    }
     try {
       const stored = localStorage.getItem('op_admin_products');
       if (stored) {
@@ -341,7 +34,9 @@
           return;
         }
       }
-    } catch {}
+    } catch (err) {
+      console.warn('localStorage read failed:', err);
+    }
     activeProducts = fallbackProducts;
   }
 
@@ -353,7 +48,7 @@
     filteredProducts = [...getProducts()];
   }
   let currentPage = 1;
-  const perPage = 9;
+  const perPage = 12;
 
   const params = new URLSearchParams(window.location.search);
   const searchParam = params.get('search');
@@ -414,7 +109,7 @@
         if (window.OmarPhone) {
           window.OmarPhone.addToCart(product);
         }
-      } catch (err) {}
+      } catch (err) { console.warn('Failed to parse product data:', err); }
     });
 
     initPriceRangeDisplay();
@@ -451,8 +146,9 @@
   }
 
   function buildProductCard(p) {
+    const h = window.OmarPhone ? window.OmarPhone.escapeHtml : (s => s);
     const stars = '★'.repeat(Math.floor(p.rating)) + (p.rating % 1 ? '½' : '');
-    const badgeHtml = p.badge ? `<div class="product-card-badges"><span class="badge ${getBadgeClass(p.badge)}">${p.badge}</span></div>` : '';
+    const badgeHtml = p.badge ? `<div class="product-card-badges"><span class="badge ${getBadgeClass(h(p.badge))}">${h(p.badge)}</span></div>` : '';
     const oldPriceHtml = p.oldPrice ? `<span class="product-card-old-price">EGP ${p.oldPrice.toLocaleString()}</span>` : '';
     const discountHtml = p.oldPrice ? `<span class="product-card-discount">-${Math.round((1 - p.price / p.oldPrice) * 100)}%</span>` : '';
     const stockHtml = p.stock
@@ -463,28 +159,27 @@
     return `
       <div class="product-card">
         <div class="product-card-image">
-          <a href="product-detail.html?id=${p.id}">
-            <img src="${p.image}" alt="${p.name}" loading="lazy">
+          <a href="product-detail.html?id=${encodeURIComponent(p.id)}">
+            <img src="${p.image}" alt="${h(p.name)}" loading="lazy">
           </a>
           ${badgeHtml}
           <div class="product-card-actions">
             <button class="product-card-action wishlist-btn ${isLoved ? 'active' : ''}" data-id="${p.id}" title="Add to wishlist">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="${isLoved ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
             </button>
-            <a href="product-detail.html?id=${p.id}" class="product-card-action" title="Quick view">
+            <a href="product-detail.html?id=${encodeURIComponent(p.id)}" class="product-card-action" title="Quick view">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
             </a>
           </div>
         </div>
         <div class="product-card-body">
-          <a href="product-detail.html?id=${p.id}">
-            <div class="product-card-brand">${p.brand}</div>
-            <h3 class="product-card-title">${p.name}</h3>
+          <a href="product-detail.html?id=${encodeURIComponent(p.id)}">
+            <div class="product-card-brand">${h(p.brand)}</div>
+            <h3 class="product-card-title">${h(p.name)}</h3>
           </a>
           <div class="product-card-specs">
-            <span class="product-card-spec">${p.storage}</span>
-            <span class="product-card-spec">${p.ram} RAM</span>
-
+            <span class="product-card-spec">${h(p.storage)}</span>
+            <span class="product-card-spec">${h(p.ram)} RAM</span>
           </div>
           <div class="product-card-rating">
             <div class="product-card-stars">${stars}</div>
@@ -496,7 +191,7 @@
             ${discountHtml}
           </div>
           ${stockHtml}
-          <button class="product-card-add" ${p.stock ? `data-product='${JSON.stringify({ id: p.id, name: p.name, image: p.image, price: p.price, storage: p.storage, color: p.color })}'` : 'disabled'}">
+          <button class="product-card-add" ${p.stock ? `data-product='${JSON.stringify({ id: p.id, name: h(p.name), image: p.image, price: p.price, storage: p.storage, color: p.color }).replace(/'/g, '&#39;')}'` : 'disabled'}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="21" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
             ${p.stock ? 'Add to Cart' : 'Out of Stock'}
           </button>

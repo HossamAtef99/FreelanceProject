@@ -1,8 +1,8 @@
 (function() {
   'use strict';
 
-  const STORAGE_KEY = 'op_admin_products';
   const API_BASE = 'http://localhost:3000';
+  const STORAGE_KEY = 'op_admin_products';
 
   let editingId = null;
 
@@ -58,412 +58,40 @@
     try {
       const data = localStorage.getItem(STORAGE_KEY);
       return data ? JSON.parse(data) : null;
-    } catch { return null; }
+    } catch (e) { console.warn('localStorage read failed:', e); return null; }
   }
 
-  function saveProducts(products) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
-    window.dispatchEvent(new CustomEvent('adminProductsUpdated'));
-  }
 
-  function getDefaultProducts() {
-    return [
-      {
-        id: "iphone15pm",
-        name: "iPhone 15 Pro Max",
-        brand: "Apple",
-        images: [
-          "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center",
-        ],
-        image:
-          "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop&crop=center",
-        price: 57499,
-        oldPrice: 62499,
-        storage: "256GB",
-        ram: "8GB",
-        colors: ["Titanium"],
-        color: "Titanium",
-        rating: 5,
-        reviews: 128,
-        stock: true,
-        category: "phones",
-        badge: "New",
-        popular: 95,
-      },
-      {
-        id: "s24ultra",
-        name: "Galaxy S24 Ultra",
-        brand: "Samsung",
-        images: [
-          "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center",
-        ],
-        image:
-          "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center",
-        price: 52499,
-        oldPrice: 62499,
-        storage: "512GB",
-        ram: "12GB",
-        colors: ["Titanium Gray"],
-        color: "Titanium Gray",
-        rating: 5,
-        reviews: 94,
-        stock: true,
-        category: "phones",
-        badge: "Sale",
-        popular: 90,
-      },
-      {
-        id: "pixel8pro",
-        name: "Pixel 8 Pro",
-        brand: "Google",
-        images: [
-          "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center",
-        ],
-        image:
-          "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&h=400&fit=crop&crop=center",
-        price: 42999,
-        oldPrice: 47999,
-        storage: "128GB",
-        ram: "12GB",
-        colors: ["Obsidian"],
-        color: "Obsidian",
-        rating: 5,
-        reviews: 76,
-        stock: true,
-        category: "phones",
-        badge: "",
-        popular: 88,
-      },
-      {
-        id: "oneplus12",
-        name: "OnePlus 12",
-        brand: "OnePlus",
-        images: [
-          "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center",
-        ],
-        image:
-          "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400&h=400&fit=crop&crop=center",
-        price: 33499,
-        oldPrice: 37999,
-        storage: "256GB",
-        ram: "16GB",
-        colors: ["Flowy Emerald"],
-        color: "Flowy Emerald",
-        rating: 5,
-        reviews: 52,
-        stock: true,
-        category: "phones",
-        badge: "Best Seller",
-        popular: 85,
-      },
-      {
-        id: "iphone15",
-        name: "iPhone 15",
-        brand: "Apple",
-        images: [
-          "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center",
-        ],
-        image:
-          "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center",
-        price: 37999,
-        oldPrice: 0,
-        storage: "128GB",
-        ram: "6GB",
-        colors: ["Pink"],
-        color: "Pink",
-        rating: 4,
-        reviews: 210,
-        stock: true,
-        category: "phones",
-        badge: "New",
-        popular: 92,
-      },
-      {
-        id: "zfold5",
-        name: "Galaxy Z Fold 5",
-        brand: "Samsung",
-        images: [
-          "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center",
-        ],
-        image:
-          "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center",
-        price: 86499,
-        oldPrice: 0,
-        storage: "256GB",
-        ram: "12GB",
-        colors: ["Icy Blue"],
-        color: "Icy Blue",
-        rating: 5,
-        reviews: 43,
-        stock: true,
-        category: "phones",
-        badge: "Premium",
-        popular: 78,
-      },
-      {
-        id: "mi14pro",
-        name: "Xiaomi 14 Pro",
-        brand: "Xiaomi",
-        images: [
-          "https://images.unsplash.com/photo-1774437342043-12ffa8880899?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center",
-        ],
-        image:
-          "https://images.unsplash.com/photo-1774437342043-12ffa8880899?w=400&h=400&fit=crop&crop=center",
-        price: 35999,
-        oldPrice: 0,
-        storage: "256GB",
-        ram: "12GB",
-        colors: ["Black"],
-        color: "Black",
-        rating: 4,
-        reviews: 67,
-        stock: true,
-        category: "phones",
-        badge: "",
-        popular: 80,
-      },
-      {
-        id: "redmi_a15",
-        name: "Redmi A15",
-        brand: "Redmi",
-        images: [
-          "https://i02.appmifile.com/mi-com-product/fly-birds/redmi-15/pc/ba48808178d85b82290883a3666f8c3b.jpg?f=webp",
-          "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center",
-        ],
-        image:
-          "https://images.unsplash.com/photo-1778854227319-31171fed9110?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cmVkbWklMjBhMTV8ZW58MHx8MHx8fDA%3",
-        price: 28499,
-        oldPrice: 0,
-        storage: "256GB",
-        ram: "12GB",
-        colors: ["White"],
-        color: "White",
-        rating: 4,
-        reviews: 38,
-        stock: true,
-        category: "phones",
-        badge: "New",
-        popular: 82,
-      },
-      {
-        id: "s23",
-        name: "Galaxy S23",
-        brand: "Samsung",
-        images: [
-          "https://images.unsplash.com/photo-1689804847601-9648c50078bc?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center",
-        ],
-        image:
-          "https://images.unsplash.com/photo-1689804847601-9648c50078bc?w=400&h=400&fit=crop&crop=center",
-        price: 28499,
-        oldPrice: 35999,
-        storage: "128GB",
-        ram: "8GB",
-        colors: ["Phantom Black"],
-        color: "Phantom Black",
-        rating: 5,
-        reviews: 210,
-        stock: true,
-        category: "phones",
-        badge: "-20%",
-        popular: 75,
-      },
-      {
-        id: "ip14pm",
-        name: "iPhone 14 Pro Max",
-        brand: "Apple",
-        images: [
-          "https://images.unsplash.com/photo-1727093493864-0bcbd16c7e6d?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center",
-        ],
-        image:
-          "https://images.unsplash.com/photo-1727093493864-0bcbd16c7e6d?w=400&h=400&fit=crop&crop=center",
-        price: 42999,
-        oldPrice: 52499,
-        storage: "256GB",
-        ram: "6GB",
-        colors: ["Deep Purple"],
-        color: "Deep Purple",
-        rating: 5,
-        reviews: 186,
-        stock: true,
-        category: "phones",
-        badge: "-18%",
-        popular: 70,
-      },
-      {
-        id: "mi13tp",
-        name: "Xiaomi 13T Pro",
-        brand: "Xiaomi",
-        images: [
-          "https://images.unsplash.com/photo-1754331732629-d281d5797956?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center",
-        ],
-        image:
-          "https://images.unsplash.com/photo-1754331732629-d281d5797956?w=400&h=400&fit=crop&crop=center",
-        price: 23999,
-        oldPrice: 30999,
-        storage: "256GB",
-        ram: "12GB",
-        colors: ["Alpine Blue"],
-        color: "Alpine Blue",
-        rating: 4,
-        reviews: 92,
-        stock: true,
-        category: "phones",
-        badge: "-25%",
-        popular: 65,
-      },
-      {
-        id: "op11",
-        name: "OnePlus 11",
-        brand: "OnePlus",
-        images: [
-          "https://images.unsplash.com/photo-1527747471697-174c755627dd?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center",
-        ],
-        image:
-          "https://images.unsplash.com/photo-1527747471697-174c755627dd?w=400&h=400&fit=crop&crop=center",
-        price: 23999,
-        oldPrice: 30999,
-        storage: "256GB",
-        ram: "16GB",
-        colors: ["Eternal Green"],
-        color: "Eternal Green",
-        rating: 4,
-        reviews: 78,
-        stock: false,
-        category: "phones",
-        badge: "-22%",
-        popular: 60,
-      },
-      {
-        id: "honor90",
-        name: "Honor 90",
-        brand: "Honor",
-        images: [
-          "https://images.unsplash.com/photo-1551636898-47668aa61de2?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center",
-        ],
-        image:
-          "https://images.unsplash.com/photo-1551636898-47668aa61de2?w=400&h=400&fit=crop&crop=center",
-        price: 21499,
-        oldPrice: 0,
-        storage: "256GB",
-        ram: "12GB",
-        colors: ["Emerald Green"],
-        color: "Emerald Green",
-        rating: 4,
-        reviews: 34,
-        stock: true,
-        category: "phones",
-        badge: "New",
-        popular: 55,
-      },
-      {
-        id: "oppofindn3",
-        name: "OPPO Find N3 Flip",
-        brand: "Oppo",
-        images: [
-          "https://images.unsplash.com/photo-1649859394614-dc4f7290b7f2?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1692307441614-c88d37a5ecaa?w=400&h=400&fit=crop&crop=center",
-        ],
-        image:
-          "https://images.unsplash.com/photo-1649859394614-dc4f7290b7f2?w=400&h=400&fit=crop&crop=center",
-        price: 47999,
-        oldPrice: 0,
-        storage: "256GB",
-        ram: "12GB",
-        colors: ["Gold"],
-        color: "Gold",
-        rating: 4,
-        reviews: 22,
-        stock: true,
-        category: "phones",
-        badge: "New",
-        popular: 58,
-      },
-    ];
-  }
+
 
   async function getProducts() {
-    try {
-      const res = await fetch(API_BASE + '/api/admin/products');
-      if (res.ok) {
-        const all = await res.json();
-        const merged = Object.values(all).flat();
-        if (merged.length) {
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
-          return merged;
-        }
-      }
-    } catch {}
+    if (window.OmarPhone && window.OmarPhone.getProducts) {
+      const data = await window.OmarPhone.getProducts();
+      if (Array.isArray(data) && data.length) return data;
+    }
     const stored = getStoredProducts();
-    if (stored && Array.isArray(stored) && stored.length) return stored;
-    const defaults = getDefaultProducts();
-    saveProducts(defaults);
-    return defaults;
-  }
-
-  async function apiRequest(url, method, body) {
-    try {
-      await fetch(API_BASE + url, {
-        method,
-        headers: { 'Content-Type': 'application/json' },
-        body: body ? JSON.stringify(body) : undefined,
-      });
-    } catch {}
+    if (stored && Array.isArray(stored) && stored.length) {
+      console.warn('Server unavailable, using local data');
+      return stored;
+    }
+    return [];
   }
 
   async function renderTable() {
     const products = await getProducts();
     const tbody = document.getElementById('productsBody');
     if (!tbody) return;
+    const h = window.OmarPhone ? window.OmarPhone.escapeHtml : (s => s);
     tbody.innerHTML = products.map(p => `
       <tr>
-        <td><img src="${p.image}" alt="${p.name}" style="width:48px;height:48px;object-fit:cover;border-radius:var(--radius-sm);"></td>
-        <td style="font-size:0.813rem;color:var(--text-secondary);">${p.id}</td>
-        <td><strong>${p.name}</strong></td>
-        <td>${p.brand}</td>
+        <td><img src="${p.image}" alt="${h(p.name)}" style="width:48px;height:48px;object-fit:cover;border-radius:var(--radius-sm);"></td>
+        <td style="font-size:0.813rem;color:var(--text-secondary);">${h(p.id)}</td>
+        <td><strong>${h(p.name)}</strong></td>
+        <td>${h(p.brand)}</td>
         <td>EGP ${p.price.toLocaleString()}</td>
         <td>${p.oldPrice ? 'EGP ' + p.oldPrice.toLocaleString() : '—'}</td>
         <td>${p.stock ? '<span style="color:var(--success);">In Stock</span>' : '<span style="color:var(--danger);">Out</span>'}</td>
-        <td style="font-size:0.813rem;">${p.category || 'phones'}</td>
+        <td style="font-size:0.813rem;">${h(p.category || 'phones')}</td>
         <td>
           <div style="display:flex;gap:8px;">
             <button class="btn edit-btn" data-id="${p.id}" style="padding:6px 12px;font-size:0.813rem;border:1px solid var(--border);">Edit</button>
@@ -485,6 +113,32 @@
     return name.toLowerCase().replace(/[^a-z0-9]/g, '') + Math.random().toString(36).substring(2, 6);
   }
 
+  function renderImagePreview(images) {
+    const preview = document.getElementById('imagePreview');
+    if (!images || !images.length) {
+      preview.innerHTML = '';
+      preview.style.display = 'none';
+      document.getElementById('formImageData').value = '';
+      return;
+    }
+    document.getElementById('formImageData').value = JSON.stringify(images);
+    preview.innerHTML = images.map((url, idx) => `
+      <div style="position:relative;display:inline-block;">
+        <img src="${url}" alt="" style="width:90px;height:90px;object-fit:cover;border-radius:var(--radius-sm);border:1px solid var(--border);">
+        <button type="button" class="img-remove-btn" data-index="${idx}" style="position:absolute;top:-6px;right:-6px;width:22px;height:22px;border-radius:50%;border:none;background:#dc3545;color:#fff;font-size:14px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;">&times;</button>
+      </div>
+    `).join('');
+    preview.style.display = '';
+    preview.querySelectorAll('.img-remove-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const idx = parseInt(this.dataset.index);
+        const current = JSON.parse(document.getElementById('formImageData').value || '[]');
+        current.splice(idx, 1);
+        renderImagePreview(current);
+      });
+    });
+  }
+
   function openAddModal() {
     editingId = null;
     document.getElementById('modalTitle').textContent = 'Add Product';
@@ -492,10 +146,8 @@
     document.getElementById('productForm').reset();
     document.getElementById('formProductId').value = '';
     document.getElementById('formStock').checked = true;
-    document.getElementById('formImageData').value = '';
     document.getElementById('formImageFile').value = '';
-    document.getElementById('imagePreview').innerHTML = '';
-    document.getElementById('imagePreview').style.display = 'none';
+    renderImagePreview([]);
     document.getElementById('formCustomColors').value = '';
     renderColorPicker([]);
     document.getElementById('productModal').style.display = 'flex';
@@ -517,13 +169,8 @@
     document.getElementById('formRam').value = p.ram || '';
     document.getElementById('formCategory').value = p.category || 'phones';
     const existingImages = p.images || (p.image ? [p.image] : []);
-    document.getElementById('formImageData').value = existingImages.length ? JSON.stringify(existingImages) : '';
     document.getElementById('formImageFile').value = '';
-    const preview = document.getElementById('imagePreview');
-    preview.innerHTML = existingImages.map(url => `
-      <img src="${url}" alt="" style="width:90px;height:90px;object-fit:cover;border-radius:var(--radius-sm);border:1px solid var(--border);">
-    `).join('');
-    preview.style.display = existingImages.length ? '' : 'none';
+    renderImagePreview(existingImages);
     document.getElementById('formRating').value = p.rating || 5;
     document.getElementById('formReviews').value = p.reviews || 0;
     document.getElementById('formBadge').value = p.badge || '';
@@ -543,18 +190,17 @@
 
   async function saveForm(e) {
     e.preventDefault();
-    const products = await getProducts();
     const id = document.getElementById('formProductId').value || generateId(document.getElementById('formName').value);
     let images = getImageData();
-    if (!images || !images.length) {
-      if (editingId) {
-        const existing = products.find(p => p.id === editingId);
+    if (!images || !images.length && editingId) {
+      try {
+        const existing = await window.OmarPhone.getProducts().then(ps => ps.find(p => p.id === editingId));
         if (existing) images = existing.images || (existing.image ? [existing.image] : []);
-      }
-      if (!images || !images.length) {
-        showToast('Please upload at least one product image.');
-        return;
-      }
+      } catch (_) {}
+    }
+    if (!images || !images.length) {
+      showToast('Please upload at least one product image.');
+      return;
     }
     const colors = getSelectedColors();
     const data = {
@@ -577,16 +223,17 @@
       stock: document.getElementById('formStock').checked,
     };
 
-    if (editingId) {
-      const idx = products.findIndex(x => x.id === editingId);
-      if (idx !== -1) products[idx] = data;
-      await apiRequest('/api/products/' + editingId, 'PUT', data);
-    } else {
-      products.push(data);
-      await apiRequest('/api/products', 'POST', data);
+    try {
+      if (editingId) {
+        await window.OmarPhone.updateProduct(editingId, data);
+      } else {
+        await window.OmarPhone.createProduct(data);
+      }
+    } catch (err) {
+      showToast('Failed to save to server: ' + err.message);
+      return;
     }
 
-    saveProducts(products);
     renderTable();
     closeModal();
     showToast(editingId ? 'Product updated!' : 'Product added!');
@@ -594,10 +241,12 @@
 
   async function deleteProduct(id) {
     if (!confirm('Delete this product?')) return;
-    let products = await getProducts();
-    products = products.filter(p => p.id !== id);
-    saveProducts(products);
-    await apiRequest('/api/products/' + id, 'DELETE');
+    try {
+      await window.OmarPhone.deleteProduct(id);
+    } catch (err) {
+      showToast('Failed to delete on server: ' + err.message);
+      return;
+    }
     renderTable();
     showToast('Product deleted.');
   }
@@ -649,20 +298,131 @@
     document.getElementById('formImageFile').addEventListener('change', function() {
       const files = Array.from(this.files).slice(0, 4);
       if (!files.length) return;
-      const preview = document.getElementById('imagePreview');
-      preview.innerHTML = '';
-      preview.style.display = '';
       const promises = files.map(file => new Promise(resolve => {
         const reader = new FileReader();
-        reader.onload = e => {
-          preview.innerHTML += `<img src="${e.target.result}" alt="" style="width:90px;height:90px;object-fit:cover;border-radius:var(--radius-sm);border:1px solid var(--border);">`;
-          resolve(e.target.result);
-        };
+        reader.onload = e => resolve(e.target.result);
         reader.readAsDataURL(file);
       }));
       Promise.all(promises).then(dataUrls => {
-        document.getElementById('formImageData').value = JSON.stringify(dataUrls);
+        const existingRaw = document.getElementById('formImageData').value;
+        const existing = existingRaw ? JSON.parse(existingRaw) : [];
+        renderImagePreview([...existing, ...dataUrls]);
       });
     });
+
+    /* ----- Tab Switching ----- */
+    const tabProducts = document.getElementById('tabProducts');
+    const tabOrders = document.getElementById('tabOrders');
+    const productsPanel = document.getElementById('adminProductsTab');
+    const ordersPanel = document.getElementById('adminOrdersTab');
+
+    function switchTab(tab) {
+      [tabProducts, tabOrders].forEach(t => t.style.background = '');
+      [tabProducts, tabOrders].forEach(t => t.style.color = '');
+      productsPanel.style.display = 'none';
+      ordersPanel.style.display = 'none';
+      if (tab === 'products') {
+        tabProducts.style.background = 'var(--primary)';
+        tabProducts.style.color = '#fff';
+        productsPanel.style.display = '';
+      } else {
+        tabOrders.style.background = 'var(--primary)';
+        tabOrders.style.color = '#fff';
+        ordersPanel.style.display = '';
+        renderOrders();
+      }
+    }
+
+    tabProducts.addEventListener('click', () => switchTab('products'));
+    tabOrders.addEventListener('click', () => switchTab('orders'));
   });
+
+  /* ----- Orders Functions ----- */
+
+  async function fetchOrders() {
+    try {
+      const res = await fetch(API_BASE + '/api/admin/orders');
+      if (res.ok) return await res.json();
+    } catch (_) {}
+    try {
+      const stored = localStorage.getItem('op_orders');
+      if (stored) return JSON.parse(stored);
+    } catch (_) {}
+    return [];
+  }
+
+  function getStatusBadge(status) {
+    const colors = {
+      pending: '#f59e0b',
+      confirmed: '#3b82f6',
+      shipped: '#8b5cf6',
+      delivered: '#10b981',
+      cancelled: '#ef4444',
+    };
+    const bg = colors[status] || '#6b7280';
+    return `<span style="display:inline-block;padding:3px 10px;border-radius:999px;font-size:0.75rem;font-weight:600;color:#fff;background:${bg};">${status}</span>`;
+  }
+
+  async function renderOrders() {
+    const orders = await fetchOrders();
+    const tbody = document.getElementById('ordersBody');
+    if (!tbody) return;
+    const h = window.OmarPhone ? window.OmarPhone.escapeHtml : (s => s);
+
+    if (!orders.length) {
+      tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:48px 0;color:var(--text-secondary);">No orders yet.</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = orders.map(order => {
+      const date = order.created_at
+        ? new Date(order.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+        : order.date ? new Date(order.date).toLocaleDateString() : '—';
+      const customer = order.customer || {};
+      const items = order.items || [];
+      const itemsHtml = items.map(i => `<div style="font-size:0.75rem;color:var(--text-secondary);">${h(i.name || 'Item')} x${i.quantity || 1}</div>`).join('');
+      return `
+        <tr>
+          <td style="font-size:0.813rem;white-space:nowrap;">${date}</td>
+          <td>${h(customer.name || '—')}</td>
+          <td>${h(customer.phone || '—')}</td>
+          <td style="max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${h(customer.address || '')}">${h(customer.address || '—')}</td>
+          <td>${itemsHtml}</td>
+          <td style="font-weight:700;white-space:nowrap;">EGP ${(order.total || 0).toLocaleString()}</td>
+          <td>${getStatusBadge(order.status || 'pending')}</td>
+          <td>
+            <select class="form-input status-select" data-id="${h(order.id)}" style="padding:4px 8px;font-size:0.75rem;width:auto;">
+              <option value="pending" ${(order.status || 'pending') === 'pending' ? 'selected' : ''}>Pending</option>
+              <option value="confirmed" ${order.status === 'confirmed' ? 'selected' : ''}>Confirmed</option>
+              <option value="shipped" ${order.status === 'shipped' ? 'selected' : ''}>Shipped</option>
+              <option value="delivered" ${order.status === 'delivered' ? 'selected' : ''}>Delivered</option>
+              <option value="cancelled" ${order.status === 'cancelled' ? 'selected' : ''}>Cancelled</option>
+            </select>
+          </td>
+        </tr>
+      `;
+    }).join('');
+
+    tbody.querySelectorAll('.status-select').forEach(sel => {
+      sel.addEventListener('change', () => updateOrderStatus(sel.dataset.id, sel.value));
+    });
+  }
+
+  async function updateOrderStatus(id, status) {
+    try {
+      const res = await fetch(API_BASE + '/api/admin/orders/' + encodeURIComponent(id), {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status }),
+      });
+      if (res.ok) {
+        showToast('Order status updated!');
+      } else {
+        showToast('Failed to update order status', 'error');
+      }
+    } catch (err) {
+      showToast('Server unreachable', 'error');
+    }
+  }
+
 })();

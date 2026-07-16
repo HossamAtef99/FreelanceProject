@@ -51,33 +51,48 @@
         btn.disabled = true;
         btn.textContent = 'Signing in...';
 
-        const { data, error } = await supabase.auth.signInWithPassword({
-          email: email.value.trim(),
-          password: password.value,
-        });
+        try {
+          if (!supabase) {
+            throw new Error('Authentication service is unavailable. Please try again later.');
+          }
 
-        btn.disabled = false;
-        btn.textContent = 'Sign In';
+          const { data, error } = await supabase.auth.signInWithPassword({
+            email: email.value.trim(),
+            password: password.value,
+          });
 
-        if (error) {
-          showToast(error.message, 'error');
-          return;
-        }
+          if (error) {
+            showToast(error.message, 'error');
+            return;
+          }
 
-        localStorage.setItem('op_user_logged', '1');
-        const { data: profileData } = await supabase
-          .from('profiles')
-          .select('name')
-          .eq('id', data.user.id)
-          .single();
-        if (profileData?.name) {
-          localStorage.setItem('op_user_name', profileData.name);
-        }
-        if (data.user?.email === 'admin@omarphone.com') {
-          localStorage.setItem('op_admin_logged', '1');
-          window.location.href = 'admin.html';
-        } else {
-          window.location.href = 'index.html';
+          localStorage.setItem('op_user_logged', '1');
+          if (data.user?.email === 'admin@omarphone.com') {
+            localStorage.setItem('op_admin_logged', '1');
+          }
+          try {
+            const { data: profileData } = await supabase
+              .from('profiles')
+              .select('name, role')
+              .eq('id', data.user.id)
+              .maybeSingle();
+            if (profileData?.name) {
+              localStorage.setItem('op_user_name', profileData.name);
+            }
+            if (profileData?.role === 'admin') {
+              localStorage.setItem('op_admin_logged', '1');
+            }
+          } catch (e) { console.warn('Profile fetch failed:', e); }
+          if (localStorage.getItem('op_admin_logged') === '1') {
+            window.location.href = 'admin.html';
+          } else {
+            window.location.href = 'index.html';
+          }
+        } catch (err) {
+          showToast(err.message || 'Login failed. Please try again.', 'error');
+        } finally {
+          btn.disabled = false;
+          btn.textContent = 'Sign In';
         }
       });
 
@@ -118,36 +133,45 @@
         btn.disabled = true;
         btn.textContent = 'Creating account...';
 
-        const { data, error } = await supabase.auth.signUp({
-          email: email.value.trim(),
-          password: password.value,
-        });
+        try {
+          if (!supabase) {
+            throw new Error('Authentication service is unavailable. Please try again later.');
+          }
 
-        btn.disabled = false;
-        btn.textContent = 'Create Account';
+          const { data, error } = await supabase.auth.signUp({
+            email: email.value.trim(),
+            password: password.value,
+          });
 
-        if (error) {
-          showToast(error.message, 'error');
-          return;
+          if (error) {
+            showToast(error.message, 'error');
+            return;
+          }
+
+          if (data?.user?.identities?.length === 0) {
+            showToast('This email is already registered. Please sign in.', 'error');
+            return;
+          }
+
+          try {
+            const { error: profileError } = await supabase
+              .from('profiles')
+              .insert([{ id: data.user.id, name: name.value.trim(), email: email.value.trim(), role: 'customer' }]);
+
+            if (profileError) {
+              console.warn('Profile insert failed:', profileError.message);
+            }
+          } catch (e) { console.warn('Profile insert failed:', e); }
+
+          localStorage.setItem('op_user_name', name.value.trim());
+          showToast('Account created! Check your email to confirm.', 'success');
+          setTimeout(() => window.location.href = 'login.html', 2000);
+        } catch (err) {
+          showToast(err.message || 'Registration failed. Please try again.', 'error');
+        } finally {
+          btn.disabled = false;
+          btn.textContent = 'Create Account';
         }
-
-        if (data?.user?.identities?.length === 0) {
-          showToast('This email is already registered. Please sign in.', 'error');
-          return;
-        }
-
-        const { error: profileError } = await supabase
-          .from('profiles')
-          .insert([{ id: data.user.id, name: name.value.trim(), email: email.value.trim() }]);
-
-        if (profileError) {
-          console.warn('Profile insert failed:', profileError.message);
-        }
-
-        localStorage.setItem('op_user_name', name.value.trim());
-        localStorage.setItem('op_user_logged', '1');
-        showToast('Account created! Check your email to confirm.', 'success');
-        setTimeout(() => window.location.href = 'index.html', 2000);
       });
 
       document.querySelectorAll('#registerFormElement .form-input').forEach(input => {

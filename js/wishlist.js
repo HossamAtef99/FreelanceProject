@@ -32,18 +32,19 @@
       return;
     }
 
+    const h = window.OmarPhone ? window.OmarPhone.escapeHtml : (s => s);
     let html = '';
     items.forEach(item => {
       const image = item.image || 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop';
       html += `
         <div class="product-card" data-id="${item.id}">
           <div class="product-card-image">
-            <img src="${image}" alt="${item.name || 'Product'}" loading="lazy">
+            <img src="${image}" alt="${h(item.name || 'Product')}" loading="lazy">
           </div>
           <div class="product-card-body">
-            <div class="product-card-title">${item.name || 'Product'}</div>
+            <h3 class="product-card-title">${h(item.name || 'Product')}</h3>
             <div class="product-card-price-row">
-              <span class="product-card-price">EGP ${(item.price || 0).toFixed(2)}</span>
+              <span class="product-card-price">EGP ${(item.price || 0).toLocaleString()}</span>
             </div>
             <button class="product-card-add wishlist-add-cart" data-id="${item.id}">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="21" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
@@ -70,6 +71,7 @@
     }
 
     grid.innerHTML = html;
+    if (window.OmarPhone) window.OmarPhone.initImageFallbacks();
 
     grid.querySelectorAll('.wishlist-add-cart').forEach(btn => {
       btn.addEventListener('click', () => {

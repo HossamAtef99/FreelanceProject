@@ -1,32 +1,7 @@
--- Create profiles table for registered users
-CREATE TABLE IF NOT EXISTS profiles (
-  id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
-  name TEXT NOT NULL,
-  email TEXT NOT NULL,
-  role TEXT DEFAULT 'customer' CHECK (role IN ('customer', 'admin')),
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
+DROP TABLE IF EXISTS products CASCADE;
+DROP TABLE IF EXISTS orders CASCADE;
 
-ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
-
-DROP POLICY IF EXISTS "Users can view own profile" ON profiles;
-CREATE POLICY "Users can view own profile"
-  ON profiles FOR SELECT
-  USING (auth.uid() = id);
-
-DROP POLICY IF EXISTS "Users can insert own profile" ON profiles;
-CREATE POLICY "Users can insert own profile"
-  ON profiles FOR INSERT
-  WITH CHECK (auth.uid() = id);
-
-DROP POLICY IF EXISTS "Users can update own profile" ON profiles;
-CREATE POLICY "Users can update own profile"
-  ON profiles FOR UPDATE
-  USING (auth.uid() = id)
-  WITH CHECK (auth.uid() = id);
-
--- Products table
-CREATE TABLE IF NOT EXISTS products (
+CREATE TABLE products (
   id TEXT PRIMARY KEY,
   name TEXT NOT NULL,
   brand TEXT NOT NULL,
@@ -60,8 +35,7 @@ CREATE POLICY "Allow all on products"
   USING (true)
   WITH CHECK (true);
 
--- Orders table
-CREATE TABLE IF NOT EXISTS orders (
+CREATE TABLE orders (
   id TEXT PRIMARY KEY,
   customer JSONB NOT NULL,
   items JSONB NOT NULL,
@@ -79,10 +53,3 @@ CREATE POLICY "Allow all on orders"
   ON orders FOR ALL
   USING (true)
   WITH CHECK (true);
-
--- Set admin@omarphone.com as admin
-INSERT INTO profiles (id, name, email, role)
-SELECT id, 'Admin', email, 'admin'
-FROM auth.users
-WHERE email = 'admin@omarphone.com'
-ON CONFLICT (id) DO UPDATE SET role = 'admin';

@@ -233,6 +233,31 @@
   </button>
   <div class="toast" id="toast"></div>
 
+  <!-- Checkout Form Modal -->
+  <div class="modal-overlay" id="checkoutModal" style="display:none;">
+    <div class="modal" style="max-width:500px;">
+      <div class="modal-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+        <h3 style="font-size:1.25rem;">Delivery Details</h3>
+        <button class="modal-close" id="checkoutModalClose" style="background:none;border:none;color:var(--text-secondary);cursor:pointer;font-size:1.5rem;">&times;</button>
+      </div>
+      <form class="auth-form" id="checkoutForm">
+        <div class="form-group">
+          <label class="form-label" for="checkoutName">Full Name</label>
+          <input type="text" class="form-input" id="checkoutName" placeholder="e.g. Ahmed Mohamed" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="checkoutPhone">Phone Number</label>
+          <input type="tel" class="form-input" id="checkoutPhone" placeholder="e.g. +20123456789" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="checkoutAddress">Delivery Address</label>
+          <textarea class="form-input" id="checkoutAddress" rows="3" placeholder="Street, building, apartment, city..." required style="resize:vertical;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Confirm Order</button>
+      </form>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
   <script src="js/cart.js"></script>
 </body>
