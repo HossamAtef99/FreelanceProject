@@ -820,6 +820,7 @@ p {
   z-index: 1;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .product-card:hover {
@@ -1403,7 +1404,7 @@ a.product-card-image {
 }
 
 .footer-social {
-  display: flex;
+  display: none;
   gap: 12px;
 }
 
