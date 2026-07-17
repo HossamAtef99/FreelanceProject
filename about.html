@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn about Omar Phone — your trusted mobile phone store since 2018. Discover our story, mission, and values.">
+  <meta name="description" content="Learn about Omar Phone — your trusted mobile phone store since 2026. Discover our story, mission, and values.">
   <title>About Us — Omar Phone</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
 </head>
 <body>
@@ -95,7 +96,7 @@
     <div class="page-header">
       <div class="container">
         <h1>About Omar Phone</h1>
-        <p>Your trusted mobile phone store since 2018.</p>
+        <p>Your trusted mobile phone store since 2026.</p>
       </div>
     </div>
 
@@ -202,6 +203,17 @@
       </div>
     </section>
 
+    <section class="section" style="background: var(--bg-alt);">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Our Location</span>
+          <h2 class="section-title">Visit Our Store</h2>
+          <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto;">Gamal Abdel Nasser Street, Shibin El Kom, Menofia, Egypt</p>
+        </div>
+        <div class="reveal" id="aboutMap" style="height: 380px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); margin-top: 8px;"></div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container text-center reveal">
         <span class="section-label">Get in Touch</span>
@@ -220,7 +232,7 @@
             <div class="footer-logo-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" x2="12.01" y1="18" y2="18"/></svg></div>
             <div class="footer-logo-text">OMAR <span>PHONE</span></div>
           </div>
-          <p class="footer-description">Your trusted mobile phone store since 2018.</p>
+          <p class="footer-description">Your trusted mobile phone store since 2026.</p>
           <div class="footer-social">
             <a href="#" class="footer-social-link" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
             <a href="#" class="footer-social-link" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
@@ -296,6 +308,21 @@
   </button>
   <div class="toast" id="toast"></div>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var mapEl = document.getElementById('aboutMap');
+      if (!mapEl) return;
+      var map = L.map(mapEl, { scrollWheelZoom: false }).setView([30.551453, 31.010763], 15);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+        maxZoom: 19,
+      }).addTo(map);
+      L.marker([30.551453, 31.010763]).addTo(map)
+        .bindPopup('<strong>Omar Phone</strong><br>Gamal Abdel Nasser Street<br>Shibin El Kom, Menofia');
+      setTimeout(function() { map.invalidateSize(); }, 300);
+    });
+  </script>
   <script src="js/main.js"></script>
 </body>
 </html>
