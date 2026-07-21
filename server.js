@@ -172,12 +172,51 @@ app.put('/api/admin/orders/:id', requireAdmin, async (req, res) => {
   try {
     const { id } = req.params;
     const { status } = req.body;
-    if (!status || !['pending', 'confirmed', 'shipped', 'delivered', 'cancelled'].includes(status)) {
+    if (!status || !['pending', 'completed', 'cancelled'].includes(status)) {
       return res.status(400).json({ error: 'Invalid order status' });
     }
     const { data, error } = await supabase.from('orders').update({ status }).eq('id', id).select().maybeSingle();
     if (error) return res.status(500).json({ error: error.message });
     if (!data) return res.status(404).json({ error: 'Order not found' });
+    res.json({ success: true, order: data });
+  } catch (err) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+/* ----- User Order Tracking ----- */
+
+app.get('/api/orders/user/:email', async (req, res) => {
+  try {
+    const email = decodeURIComponent(req.params.email);
+    const name = req.query.name ? decodeURIComponent(req.query.name) : '';
+    let { data, error } = await supabase.from('orders').select('*').filter('customer->>email', 'eq', email).order('created_at', { ascending: false });
+    if (error) return res.status(500).json({ error: error.message });
+    if (!data || !data.length) {
+      if (name) {
+        const r = await supabase.from('orders').select('*').filter('customer->>name', 'eq', name).order('created_at', { ascending: false });
+        if (!r.error && r.data && r.data.length) data = r.data;
+      }
+      if (!data || !data.length) {
+        const r = await supabase.from('orders').select('*').order('created_at', { ascending: false }).limit(50);
+        if (!r.error) data = (r.data || []).filter(o => !o.customer?.email);
+      }
+    }
+    res.json(data || []);
+  } catch (err) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.put('/api/orders/:id/cancel', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const existing = await supabase.from('orders').select('*').eq('id', id).maybeSingle();
+    if (existing.error) return res.status(500).json({ error: existing.error.message });
+    if (!existing.data) return res.status(404).json({ error: 'Order not found' });
+    if (existing.data.status !== 'pending') return res.status(400).json({ error: 'Only pending orders can be cancelled' });
+    const { data, error } = await supabase.from('orders').update({ status: 'cancelled' }).eq('id', id).select().maybeSingle();
+    if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true, order: data });
   } catch (err) {
     res.status(500).json({ error: 'Internal server error' });

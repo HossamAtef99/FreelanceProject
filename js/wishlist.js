@@ -101,7 +101,8 @@
         items.forEach(item => {
           window.OmarPhone.addToCart({ id: item.id, name: item.name, image: item.image, price: item.price, storage: item.storage, color: item.color, quantity: 1 });
         });
-        window.OmarPhone.showToast('All items added to cart!', 'success');
+        window.OmarPhone.setWishlist([]);
+        window.OmarPhone.showToast('All items moved to cart!', 'success');
       });
     }
   }

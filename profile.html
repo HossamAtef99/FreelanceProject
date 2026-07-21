@@ -25,6 +25,36 @@
     .profile-field label { display: block; font-size: .813rem; color: var(--text-secondary); margin-bottom: 4px; }
     .profile-field .value { font-size: 1rem; color: var(--text-primary); padding: 10px 14px; background: var(--background); border-radius: var(--radius-sm); }
     .profile-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+    .orders-section { padding: 60px 0; background: var(--bg-alt); }
+    .orders-empty { text-align: center; padding: 60px 24px; color: var(--text-secondary); }
+    .order-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 20px; }
+    .order-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .order-id { font-size: 0.813rem; color: var(--text-secondary); font-family: monospace; }
+    .order-date { font-size: 0.813rem; color: var(--text-secondary); }
+    .order-items { margin-bottom: 16px; }
+    .order-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.875rem; }
+    .order-item:last-child { border-bottom: none; }
+    .order-total { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 2px solid var(--border); font-weight: 700; font-size: 1rem; }
+    .order-actions { margin-top: 16px; display: flex; gap: 12px; }
+    .timeline { display: flex; align-items: center; gap: 0; margin: 16px 0; padding: 0; }
+    .timeline-step { flex: 1; text-align: center; position: relative; }
+    .timeline-dot { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 6px; font-size: 0.75rem; font-weight: 700; border: 2px solid var(--border); background: var(--card); color: var(--text-secondary); }
+    .timeline-dot.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .timeline-dot.done { background: var(--success); border-color: var(--success); color: #fff; }
+    .timeline-dot.cancelled { background: var(--danger); border-color: var(--danger); color: #fff; }
+    .timeline-label { font-size: 0.688rem; color: var(--text-secondary); }
+    .timeline-label.active { color: var(--primary); font-weight: 600; }
+    .timeline-label.done { color: var(--success); font-weight: 600; }
+    .timeline-label.cancelled { color: var(--danger); font-weight: 600; }
+    .timeline-line { position: absolute; top: 14px; left: calc(50% + 16px); right: calc(-50% + 16px); height: 2px; background: var(--border); }
+    .timeline-line.done { background: var(--success); }
+    .timeline-line.active { background: var(--primary); }
+    .timeline-step:last-child .timeline-line { display: none; }
+    .profile-tabs { display:flex; gap:0; margin-top: 15px; margin-bottom:25px; justify-content:center; }
+    .profile-tab { padding:12px 32px; border:1px solid var(--border); background:var(--card-bg); cursor:pointer; font-size:.938rem; font-weight:500; color:var(--text-secondary); transition:all .2s; }
+    .profile-tab:first-child { border-radius:var(--radius-md) 0 0 var(--radius-md); }
+    .profile-tab:last-child { border-radius:0 var(--radius-md) var(--radius-md) 0; }
+    .profile-tab.active { background:var(--primary); color:#fff; border-color:var(--primary); }
   </style>
 </head>
 <body>
@@ -122,7 +152,12 @@
       </div>
     </div>
 
-    <section class="profile-section">
+    <div class="profile-tabs">
+      <button class="profile-tab active" id="tabProfile">Profile</button>
+      <button class="profile-tab" id="tabOrders">My Orders</button>
+    </div>
+
+    <section class="profile-section" id="profileSection">
       <div class="container">
         <div class="profile-card">
           <div class="profile-avatar-wrap" id="avatarWrap" title="Click to change photo">
@@ -150,6 +185,17 @@
             </button>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="orders-section" id="ordersSection" style="display:none;">
+      <div class="container">
+        <div class="section-header" style="text-align:center;margin-bottom:40px;">
+          <span class="section-label">Order History</span>
+          <h2 class="section-title">My Orders</h2>
+          <p style="color:var(--text-secondary);">Track the status of your orders.</p>
+        </div>
+        <div id="ordersContainer" style="max-width:700px;margin:0 auto;"></div>
       </div>
     </section>
   </main>

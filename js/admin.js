@@ -354,9 +354,7 @@
   function getStatusBadge(status) {
     const colors = {
       pending: '#f59e0b',
-      confirmed: '#3b82f6',
-      shipped: '#8b5cf6',
-      delivered: '#10b981',
+      completed: '#10b981',
       cancelled: '#ef4444',
     };
     const bg = colors[status] || '#6b7280';
@@ -393,9 +391,7 @@
           <td>
             <select class="form-input status-select" data-id="${h(order.id)}" style="padding:4px 8px;font-size:0.75rem;width:auto;">
               <option value="pending" ${(order.status || 'pending') === 'pending' ? 'selected' : ''}>Pending</option>
-              <option value="confirmed" ${order.status === 'confirmed' ? 'selected' : ''}>Confirmed</option>
-              <option value="shipped" ${order.status === 'shipped' ? 'selected' : ''}>Shipped</option>
-              <option value="delivered" ${order.status === 'delivered' ? 'selected' : ''}>Delivered</option>
+              <option value="completed" ${order.status === 'completed' ? 'selected' : ''}>Completed</option>
               <option value="cancelled" ${order.status === 'cancelled' ? 'selected' : ''}>Cancelled</option>
             </select>
           </td>
@@ -410,15 +406,20 @@
 
   async function updateOrderStatus(id, status) {
     try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const token = session?.access_token;
+      const headers = { 'Content-Type': 'application/json' };
+      if (token) headers['Authorization'] = 'Bearer ' + token;
       const res = await fetch(API_BASE + '/api/admin/orders/' + encodeURIComponent(id), {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({ status }),
       });
       if (res.ok) {
         showToast('Order status updated!');
       } else {
-        showToast('Failed to update order status', 'error');
+        const err = await res.json().catch(() => ({}));
+        showToast(err.error || 'Failed to update order status', 'error');
       }
     } catch (err) {
       showToast('Server unreachable', 'error');

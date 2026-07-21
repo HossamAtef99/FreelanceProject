@@ -200,9 +200,15 @@
     const totalText = document.getElementById('summaryTotal')?.textContent || '';
     const total = parseFloat(totalText.replace(/[^0-9.]/g, '')) || 0;
 
+    let userEmail = '';
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session?.user?.email) userEmail = session.user.email;
+    } catch (_) {}
+
     const order = {
       id: Date.now().toString(36) + Math.random().toString(36).substring(2, 6),
-      customer: { name, phone, address },
+      customer: { name, phone, address, email: userEmail },
       items: cart,
       total,
       date: new Date().toISOString(),
